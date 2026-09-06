@@ -363,6 +363,61 @@
     }
   }
 
+
+  .choice-guide{
+    margin-top:8px;
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.75;
+  }
+  .quick-chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:10px;
+  }
+  .quick-chip{
+    min-height:auto;
+    padding:8px 11px;
+    border-radius:999px;
+    background:#f6f0e8;
+    border:1px solid #e5d8c9;
+    color:#5d5147;
+    font-size:13px;
+    font-weight:800;
+    box-shadow:none;
+  }
+  .quick-chip:hover{
+    background:#efe5d8;
+  }
+  .quick-chip.scene{
+    background:#edf4f7;
+    border-color:#d5e4ea;
+    color:#496373;
+  }
+  .quick-chip.word{
+    background:#eef4ed;
+    border-color:#d8e5d6;
+    color:#536d52;
+  }
+  .student-thinking-box{
+    margin-top:18px;
+    padding:18px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#fff9f2,#f5f8f7);
+    border:1px solid #e8ddd1;
+  }
+  .student-thinking-box h4{
+    margin:0 0 6px;
+    color:var(--navy);
+    font-size:18px;
+  }
+  .student-thinking-box p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+  }
+
 </style>
 </head>
 <body>
@@ -513,6 +568,70 @@
           <div class="helpbox">
             <b>시 원문은 그대로!</b><br>
             이미지 안에는 입력한 창작시를 요약하지 않고 원문 그대로 넣도록 프롬프트가 만들어집니다.
+          </div>
+
+          <div class="student-thinking-box">
+            <h4>시를 읽고 내 생각을 조금 더 적어보세요</h4>
+            <p>정답은 없습니다. 아래 예시를 참고해서 내가 느낀 것을 편하게 적으면 됩니다.</p>
+          </div>
+
+          <label for="favoriteLine">가장 마음에 남은 시 구절</label>
+          <input id="favoriteLine" placeholder='예: "네 속이 내 속인걸"'>
+          <div class="choice-guide">
+            시 전체에서 가장 기억에 남거나, 마음이 움직였던 한 줄을 그대로 적어보세요.
+          </div>
+          <div class="quick-chips">
+            <button type="button" class="quick-chip" onclick="fillExample('favoriteLine','서로의 마음을 이해하는 구절')">서로의 마음을 이해하는 구절</button>
+            <button type="button" class="quick-chip" onclick="fillExample('favoriteLine','가장 따뜻하게 느껴진 구절')">가장 따뜻한 구절</button>
+            <button type="button" class="quick-chip" onclick="fillExample('favoriteLine','가장 오래 기억에 남는 구절')">가장 기억에 남는 구절</button>
+          </div>
+
+          <label for="oneWord">이 시를 한 단어로 표현하면</label>
+          <input id="oneWord" list="oneWordExamples" placeholder="예: 이해, 가족, 성장, 기다림">
+          <datalist id="oneWordExamples">
+            <option value="이해">
+            <option value="가족">
+            <option value="사랑">
+            <option value="그리움">
+            <option value="성장">
+            <option value="기다림">
+            <option value="희망">
+            <option value="위로">
+            <option value="추억">
+            <option value="화해">
+          </datalist>
+          <div class="quick-chips">
+            <button type="button" class="quick-chip word" onclick="fillExample('oneWord','이해')">이해</button>
+            <button type="button" class="quick-chip word" onclick="fillExample('oneWord','그리움')">그리움</button>
+            <button type="button" class="quick-chip word" onclick="fillExample('oneWord','성장')">성장</button>
+            <button type="button" class="quick-chip word" onclick="fillExample('oneWord','위로')">위로</button>
+            <button type="button" class="quick-chip word" onclick="fillExample('oneWord','화해')">화해</button>
+          </div>
+
+          <label for="imaginedScene">시를 읽고 떠오른 장면</label>
+          <input id="imaginedScene" placeholder="예: 저녁 식당에서 엄마와 딸이 마주 앉아 있는 장면">
+          <div class="choice-guide">
+            영화의 한 장면을 떠올리듯 생각해보세요. 실제 시 내용과 똑같지 않아도 괜찮습니다.
+          </div>
+          <div class="quick-chips">
+            <button type="button" class="quick-chip scene" onclick="fillExample('imaginedScene','창가에서 조용히 밖을 바라보는 장면')">창가에서 바라보는 장면</button>
+            <button type="button" class="quick-chip scene" onclick="fillExample('imaginedScene','두 사람이 마주 앉아 서로를 바라보는 장면')">두 사람이 마주 앉은 장면</button>
+            <button type="button" class="quick-chip scene" onclick="fillExample('imaginedScene','노을빛 길을 한 사람이 천천히 걷는 장면')">노을길을 걷는 장면</button>
+            <button type="button" class="quick-chip scene" onclick="fillExample('imaginedScene','비 오는 날 우산 아래에서 함께 걷는 장면')">비 오는 날 함께 걷는 장면</button>
+          </div>
+
+          <label for="personStyle">인물 표현 방식</label>
+          <select id="personStyle">
+            <option value="시의 분위기에 가장 어울리는 방식으로 자연스럽게 선택">AI가 분위기에 맞게 선택</option>
+            <option value="얼굴이 자연스럽게 보이는 인물">얼굴이 보이는 인물</option>
+            <option value="뒷모습 중심의 인물">뒷모습</option>
+            <option value="실루엣 형태의 인물">실루엣</option>
+            <option value="손이나 일부 신체만 보이는 표현">손·일부 신체만</option>
+            <option value="화면 속 작은 인물로 표현">작은 인물</option>
+            <option value="인물을 넣지 않고 사물과 풍경만 표현">인물 없이 사물·풍경만</option>
+          </select>
+          <div class="choice-guide">
+            얼굴을 크게 보여주지 않으면 보는 사람이 자신의 기억이나 경험을 더 쉽게 떠올릴 수 있습니다.
           </div>
         </div>
 
@@ -849,12 +968,24 @@ function safeValue(value, fallback){
   return value && value.trim() ? value.trim() : fallback;
 }
 
+function fillExample(id, value){
+  const el = $(id);
+  if(el){
+    el.value = value;
+    el.focus();
+  }
+}
+
 function commonInput(){
   return {
     title: $("title").value.trim(),
     author: $("author").value.trim(),
     creator: $("creator").value.trim(),
     poem: $("poem").value.trim(),
+    favoriteLine: $("favoriteLine").value.trim(),
+    oneWord: $("oneWord").value.trim(),
+    imaginedScene: $("imaginedScene").value.trim(),
+    personStyle: $("personStyle").value,
     emotion: $("emotion").value.trim(),
     symbol: $("symbol").value.trim(),
     color: $("color").value.trim(),
@@ -917,6 +1048,10 @@ ${data.poem}
 """`;
 
   const interpret = `[청소년이 느낀 시의 해석]
+- 가장 마음에 남은 시 구절: ${safeValue(data.favoriteLine, "시 전체에서 가장 마음에 남는 한 구절을 중심 정서에 참고해줘")}
+- 이 시를 한 단어로 표현하면: ${safeValue(data.oneWord, "시의 핵심 메시지를 한 단어로 자연스럽게 파악해줘")}
+- 시를 읽고 떠오른 장면: ${safeValue(data.imaginedScene, "시의 정서에 어울리는 한 장면을 자연스럽게 구성해줘")}
+- 인물 표현 방식: ${data.personStyle}
 - 중심 감정: ${safeValue(data.emotion, "시 전체를 읽고 가장 중요한 감정을 자연스럽게 파악해줘")}
 - 핵심 상징: ${safeValue(data.symbol, "시 전체를 대표할 수 있는 상징적인 소재 1~3개를 선택해줘")}
 - 색감: ${safeValue(data.color, "시의 정서에 어울리는 따뜻하고 감성적인 색감을 선택해줘")}
@@ -966,6 +1101,10 @@ ${interpret}
 ${baseInfo}
 
 [청소년이 느낀 시의 해석]
+- 가장 마음에 남은 시 구절: ${safeValue(data.favoriteLine, "시 전체에서 가장 마음에 남는 한 구절을 중심 정서에 참고해줘")}
+- 이 시를 한 단어로 표현하면: ${safeValue(data.oneWord, "시의 핵심 메시지를 한 단어로 자연스럽게 파악해줘")}
+- 시를 읽고 떠오른 장면: ${safeValue(data.imaginedScene, "시의 정서에 어울리는 한 장면을 자연스럽게 구성해줘")}
+- 인물 표현 방식: ${data.personStyle}
 - 중심 감정: ${safeValue(data.emotion, "시 전체를 읽고 가장 중요한 감정을 자연스럽게 파악해줘")}
 - 핵심 상징: ${safeValue(data.symbol, "시 전체를 대표할 수 있는 상징적인 소재 1~3개를 선택해줘")}
 - 색감: ${safeValue(data.color, "시의 정서에 어울리는 따뜻하고 감성적인 색감을 선택해줘")}
@@ -991,6 +1130,9 @@ ${baseInfo}
 기준 이미지:
 - ${data.flowRatio1} 비율의 완성된 시화 이미지
 - 시 제목, 시인 이름, 창작시 원문, 시화 창작자 이름이 모두 이미 정확하게 들어가 있는 이미지
+- 청소년이 선택한 핵심 단어: ${safeValue(data.oneWord, "시의 핵심 메시지")}
+- 청소년이 떠올린 장면: ${safeValue(data.imaginedScene, "시의 정서에 어울리는 장면")}
+- 인물 표현 방식: ${data.personStyle}
 - 시의 분위기: ${safeValue(data.emotion, "감성적이고 서정적인 분위기")}
 - 핵심 상징: ${safeValue(data.symbol, "시를 대표하는 핵심 상징")}
 - 색감: ${safeValue(data.color, "따뜻하고 감성적인 색감")}
@@ -1051,6 +1193,9 @@ ${baseInfo}
 기준 이미지:
 - ${data.flowRatio2} 비율의 글자 없는 배경 이미지
 - 시의 감정과 상징을 담고 있지만 텍스트는 없는 배경 장면
+- 청소년이 선택한 핵심 단어: ${safeValue(data.oneWord, "시의 핵심 메시지")}
+- 청소년이 떠올린 장면: ${safeValue(data.imaginedScene, "시의 정서에 어울리는 장면")}
+- 인물 표현 방식: ${data.personStyle}
 - 시의 분위기: ${safeValue(data.emotion, "감성적이고 서정적인 분위기")}
 - 핵심 상징: ${safeValue(data.symbol, "시를 대표하는 핵심 상징")}
 - 색감: ${safeValue(data.color, "따뜻하고 감성적인 색감")}
@@ -1187,6 +1332,10 @@ function sample(){
 이겨서 뭐 하나
 네 속이 내 속인걸
 싸우고 이기느니 내일은 중간 매운맛이다.`;
+  $("favoriteLine").value = "네 속이 내 속인걸";
+  $("oneWord").value = "이해";
+  $("imaginedScene").value = "저녁 식당에서 엄마와 딸이 마주 앉아 김이 오르는 마라탕을 바라보는 장면";
+  $("personStyle").value = "뒷모습 중심의 인물";
   $("emotion").value = "따뜻함, 미안함, 서로를 이해해가는 마음";
   $("symbol").value = "마라탕, 김이 오르는 그릇, 마주 앉은 두 사람";
   $("color").value = "따뜻한 빨강, 주황, 크림색";
@@ -1203,7 +1352,8 @@ function sample(){
 }
 
 function resetAll(){
-  ["title","author","creator","poem","emotion","symbol","color","space"].forEach(id => $(id).value = "");
+  ["title","author","creator","poem","favoriteLine","oneWord","imaginedScene","emotion","symbol","color","space"].forEach(id => $(id).value = "");
+  $("personStyle").selectedIndex = 0;
   $("style").selectedIndex = 0;
   $("fontStyle").selectedIndex = 0;
   $("textPosition").selectedIndex = 0;
