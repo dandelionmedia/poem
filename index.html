@@ -476,7 +476,7 @@
     <div class="section-title">
       <div>
         <h2>나만의 세대공감 AI 시화 프롬프트 만들기</h2>
-        <p class="section-sub">한 번 입력하면 아래에 이미지 프롬프트 3종과 Google Flow 영상 프롬프트 2종이 함께 생성됩니다.</p>
+        <p class="section-sub">한 번 입력하면 아래에 이미지 프롬프트 2종과 Google Flow 영상 프롬프트 2종, 총 4종이 함께 생성됩니다.</p>
       </div>
       <span class="label">CREATE</span>
     </div>
@@ -658,11 +658,10 @@
 
           <div class="helpbox blue">
             <b>이번 페이지에서 생성되는 결과</b><br>
-            ① <b>시화 이미지 프롬프트</b><br>
-            ② <b>시화 이미지 프롬프트(글자 포함)</b><br>
-            ③ <b>배경 이미지 프롬프트(글자 없음)</b><br>
-            ④ <b>Google Flow 영상 프롬프트(글자 포함 시화용)</b><br>
-            ⑤ <b>Google Flow 영상 프롬프트(글자 없는 배경용)</b>
+            ① <b>시화 이미지 프롬프트(글자 포함)</b><br>
+            ② <b>배경 이미지 프롬프트(글자 없음)</b><br>
+            ③ <b>Google Flow 영상 프롬프트(글자 포함 시화용)</b><br>
+            ④ <b>Google Flow 영상 프롬프트(글자 없는 배경용)</b>
           </div>
 
           <div class="helpbox gold">
@@ -679,8 +678,8 @@
           </div>
 
           <div class="btns">
-            <button class="primary" onclick="makePrompts()">프롬프트 5종 만들기</button>
-            <button id="copyAllBtn" class="copy" onclick="copyAllPrompts()">📋 프롬프트 5종 한 번에 복사</button>
+            <button class="primary" onclick="makePrompts()">프롬프트 4종 만들기</button>
+            <button id="copyAllBtn" class="copy" onclick="copyAllPrompts()">📋 프롬프트 4종 한 번에 복사</button>
             <button class="ghost" onclick="sample()">예시 넣기</button>
             <button class="ghost" onclick="resetAll()">초기화</button>
           </div>
@@ -701,59 +700,59 @@
           </div>
           <button class="copy small-copy" onclick="copyPrompt('out45', '시화 이미지 프롬프트가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
         </div>
-        <div id="out45" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 시화 이미지 프롬프트가 표시됩니다.</div>
+        <div id="out45" class="output">입력 후 “프롬프트 4종 만들기”를 누르면 여기에 시화 이미지 프롬프트가 표시됩니다.</div>
         <div id="status-out45" class="copy-status">✓ 복사가 완료되었습니다.</div>
       </article>
 
       <article class="prompt-card">
         <div class="prompt-card-header">
           <div>
-            <span class="prompt-badge badge-916text">시화 이미지 프롬프트(글자 포함)</span>
+            <span class="prompt-badge badge-916text">① 시화 이미지 프롬프트(글자 포함)</span>
             <h4>선택한 비율의 시화 이미지 만들기 (글자 포함)</h4>
             <p>선택한 비율 안에 시 원문과 그림, 창작자 이름이 모두 들어가는 이미지 제작용입니다.</p>
           </div>
           <button class="copy small-copy" onclick="copyPrompt('out916text', '시화 이미지 프롬프트(글자 포함)가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
         </div>
-        <div id="out916text" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 시화 이미지 프롬프트(글자 포함)가 표시됩니다.</div>
+        <div id="out916text" class="output">입력 후 “프롬프트 4종 만들기”를 누르면 여기에 시화 이미지 프롬프트(글자 포함)가 표시됩니다.</div>
         <div id="status-out916text" class="copy-status">✓ 복사가 완료되었습니다.</div>
       </article>
 
       <article class="prompt-card">
         <div class="prompt-card-header">
           <div>
-            <span class="prompt-badge badge-916bg">배경 이미지 프롬프트(글자 없음)</span>
+            <span class="prompt-badge badge-916bg">② 배경 이미지 프롬프트(글자 없음)</span>
             <h4>선택한 비율의 배경 이미지 만들기 (글자 없음)</h4>
             <p>같은 시의 분위기를 유지하면서, 시·제목·작가·창작자 이름 없이 배경만 만드는 프롬프트입니다.</p>
           </div>
           <button class="copy small-copy" onclick="copyPrompt('out916bg', '배경 이미지 프롬프트(글자 없음)가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
         </div>
-        <div id="out916bg" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 배경 이미지 프롬프트(글자 없음)가 표시됩니다.</div>
+        <div id="out916bg" class="output">입력 후 “프롬프트 4종 만들기”를 누르면 여기에 배경 이미지 프롬프트(글자 없음)가 표시됩니다.</div>
         <div id="status-out916bg" class="copy-status">✓ 복사가 완료되었습니다.</div>
       </article>
 
       <article class="prompt-card">
         <div class="prompt-card-header">
           <div>
-            <span class="prompt-badge badge-flow1">Google Flow 영상 프롬프트</span>
+            <span class="prompt-badge badge-flow1">③ Google Flow 영상 프롬프트</span>
             <h4>선택한 비율의 시화 이미지(글자 포함)를 영상으로 만들기</h4>
             <p>시 글자는 완전히 고정하고, 그림과 배경만 부드럽게 움직이도록 설계한 Flow용 프롬프트입니다.</p>
           </div>
           <button class="copy small-copy" onclick="copyPrompt('outFlowText', '글자 포함 시화용 Google Flow 프롬프트가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
         </div>
-        <div id="outFlowText" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.</div>
+        <div id="outFlowText" class="output">입력 후 “프롬프트 4종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.</div>
         <div id="status-outFlowText" class="copy-status">✓ 복사가 완료되었습니다.</div>
       </article>
 
       <article class="prompt-card">
         <div class="prompt-card-header">
           <div>
-            <span class="prompt-badge badge-flow2">Google Flow 영상 프롬프트</span>
+            <span class="prompt-badge badge-flow2">④ Google Flow 영상 프롬프트</span>
             <h4>선택한 비율의 배경 이미지(글자 없음)를 영상으로 만들기</h4>
             <p>글자 없는 배경 이미지를 선택한 Flow 비율에 맞는 분위기 중심 영상으로 확장하는 프롬프트입니다.</p>
           </div>
           <button class="copy small-copy" onclick="copyPrompt('outFlowBg', '글자 없는 배경용 Google Flow 프롬프트가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
         </div>
-        <div id="outFlowBg" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.</div>
+        <div id="outFlowBg" class="output">입력 후 “프롬프트 4종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.</div>
         <div id="status-outFlowBg" class="copy-status">✓ 복사가 완료되었습니다.</div>
       </article>
 
@@ -864,7 +863,6 @@ function commonInput(){
     fontStyle: $("fontStyle").value,
     textPosition: $("textPosition").value,
     creatorPosition: $("creatorPosition").value,
-    imageRatio1: $("imageRatio1").value,
     imageRatio2: $("imageRatio2").value,
     imageRatio3: $("imageRatio3").value,
     flowRatio1: $("flowRatio1").value,
@@ -892,7 +890,6 @@ function makePrompts(){
   const data = commonInput();
 
   if(!data.poem){
-    $("out45").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
     $("out916text").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
     $("out916bg").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
     $("outFlowText").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
@@ -928,49 +925,6 @@ ${data.poem}
 - 시 원문 글씨체 느낌: ${data.fontStyle}
 - 시 원문 배치 위치: ${data.textPosition}
 - 시화 창작자 이름 배치 위치: ${data.creatorPosition}`;
-
-  const prompt45 = `아래에 있는 어른의 창작시를 천천히 읽고,
-어른이 살아온 경험과 감정을 존중하면서
-청소년의 새로운 시선과 감성으로 다시 해석한
-‘세대공감 시화(詩畵)’ 형식의 한 장의 작품으로 만들어줘.
-
-이 작품은 시의 내용을 단순히 설명하는 삽화가 아니라,
-어른의 창작시와 청소년의 감정적 해석이 한 화면에서 만나는 작품이어야 한다.
-
-또한 아래에 제공하는 창작시 Text 전체를 이미지 안에 함께 넣고,
-선택한 글씨체 분위기까지 작품 전체와 조화롭게 표현해줘.
-
-${baseInfo}
-
-${interpret}
-- 최종 이미지 비율: ${data.imageRatio1}
-- 활용 목적: ${ratioUseText(data.imageRatio1)}
-
-[시화 이미지 제작 조건]
-1. ${data.imageRatio1} 비율의 시화 작품으로 제작해줘.
-2. 어른의 시를 단순히 그림으로 옮기지 말고, 시에서 느껴지는 감정과 의미를 청소년의 시각 언어로 재해석해줘.
-3. 시에 등장하는 모든 내용을 그대로 그리지 말고, 작품 전체를 대표하는 핵심 상징 1~3개를 중심으로 구성해줘.
-4. 어른의 경험과 청소년의 새로운 감성이 자연스럽게 이어지는 따뜻한 분위기를 만들어줘.
-5. 색감, 빛, 그림자, 계절, 공간을 활용해 시의 정서를 시각적으로 보여줘.
-6. 화면을 사물로 가득 채우지 말고 충분한 여백을 두어 시의 여운과 감정을 느낄 수 있게 해줘.
-7. 사람을 표현할 경우 얼굴을 크게 강조하기보다 뒷모습, 실루엣, 손, 작은 인물 등으로 표현해 감상자가 자신의 경험을 떠올릴 수 있게 해줘.
-8. 지나치게 만화적이거나 장면 설명 중심의 그림은 피하고, 한 장의 전시용 시화 작품처럼 완성도 있게 표현해줘.
-9. ${data.imageRatio1} 화면비 안에서 그림, 시 원문, 창작자 이름이 서로 겹치지 않도록 안정적인 레이아웃을 만들어줘.
-10. 위에 제공한 어른의 창작시 원문 전체를 이미지 안에 반드시 넣어줘.
-11. 시 원문을 요약하거나 줄이거나 바꾸지 말고 입력된 Text를 그대로 사용해줘.
-12. 시의 연과 행의 줄바꿈을 가능한 한 원문 그대로 유지해줘.
-13. ${data.title ? `시 제목 "${data.title}"을 작품 안에 분명하게 표시해줘.` : "시 제목이 제공되지 않았으므로 임의의 제목을 만들지 말아줘."}
-14. ${data.author ? `시인 이름 "${data.author}"도 제목 주변이나 시 본문 주변에 자연스럽게 표시해줘.` : "시인 이름이 제공되지 않았으므로 임의의 작가 이름을 넣지 말아줘."}
-15. 시 원문은 화면의 ${data.textPosition}에 배치해줘.
-16. 시 원문과 제목, 시인 이름은 전체적으로 "${data.fontStyle}"의 분위기로 표현해줘.
-17. 글씨체의 개성보다 한글 가독성과 원문 정확성을 더 우선해줘.
-18. 시 본문은 충분한 행간과 여백을 확보해 편안하게 읽히도록 구성해줘.
-19. 글자가 그림에 묻히지 않도록 배경 대비를 확보하고, 필요하면 시가 들어가는 영역의 배경을 단순하거나 부드럽게 만들어줘.
-20. ${data.creator ? `시화를 만든 창작자 표기 "${data.creator}"를 이미지 안에 반드시 넣어줘.` : "시화 창작자 정보가 제공되지 않았으므로 임의의 창작자 이름이나 소속을 만들지 말아줘."}
-21. ${data.creator ? `창작자 표기 "${data.creator}"의 글자를 한 글자도 바꾸거나 줄이지 말고 입력된 그대로 정확하게 사용해줘.` : ""}
-22. 창작자 표기는 시 제목이나 시 본문보다 작게 표현하되 충분히 읽을 수 있도록 선명하게 만들어줘.
-23. 창작자 표기는 ${data.creatorPosition}에 자연스럽게 배치해줘.
-24. 최우선 목표는 ‘어른의 창작시 + 청소년의 해석 + 감성적인 시각 이미지 + 시화를 만든 창작자의 정확한 이름·소속’이 한 작품 안에서 자연스럽게 연결되는 ${data.imageRatio1} 세대공감 시화를 만드는 것이다.`;
 
   const prompt916Text = `아래에 있는 어른의 창작시를 바탕으로,
 선택한 화면비에 맞는 시화 이미지를 만들어줘.
@@ -1118,12 +1072,11 @@ ${baseInfo}
 13. 전체 무드는 ‘세대공감 시화의 감정을 담은 조용한 ${flowOrientationText(data.flowRatio2)} 배경 영상’이어야 해.
 14. 최우선 목표는 ‘글자는 없지만 시의 정서가 살아 있고, Google Flow에서 활용하기 좋은 ${data.flowRatio2} 배경 영상’을 만드는 것이다.`;
 
-  $("out45").textContent = prompt45;
   $("out916text").textContent = prompt916Text;
   $("out916bg").textContent = prompt916Bg;
   $("outFlowText").textContent = flowText;
   $("outFlowBg").textContent = flowBg;
-  $("msg").textContent = "프롬프트 5종이 생성되었습니다. 필요한 프롬프트를 복사해 활용하세요.";
+  $("msg").textContent = "프롬프트 4종이 생성되었습니다. 필요한 프롬프트를 복사해 활용하세요.";
 }
 
 async function copyPrompt(id, successMessage, buttonEl){
@@ -1168,52 +1121,46 @@ async function copyPrompt(id, successMessage, buttonEl){
 }
 
 async function copyAllPrompts(){
-  const ids = ["out45","out916text","out916bg","outFlowText","outFlowBg"];
+  const ids = ["out916text","out916bg","outFlowText","outFlowBg"];
   const texts = ids.map(id => $(id).textContent.trim());
   if(texts.some(t => !t || t.includes("표시됩니다") || t.startsWith("먼저"))){
-    $("msg").textContent = "먼저 프롬프트 5종을 생성해주세요.";
+    $("msg").textContent = "먼저 프롬프트 4종을 생성해주세요.";
     return;
   }
 
-  const allText = `[1] 시화 이미지 프롬프트
+  const allText = `[1] 시화 이미지 프롬프트 (글자 포함)
 
 ${texts[0]}
 
 ==================================================
 
-[2] 시화 이미지 프롬프트(글자 포함) (글자 포함)
+[2] 배경 이미지 프롬프트 (글자 없음)
 
 ${texts[1]}
 
 ==================================================
 
-[3] 배경 이미지 프롬프트(글자 없음) (글자 없음)
+[3] Google Flow 영상 프롬프트 (글자 포함 시화용)
 
 ${texts[2]}
 
 ==================================================
 
-[4] Google Flow 영상 프롬프트 (글자 포함 시화용)
+[4] Google Flow 영상 프롬프트 (글자 없는 배경용)
 
-${texts[3]}
-
-==================================================
-
-[5] Google Flow 영상 프롬프트 (글자 없는 배경용)
-
-${texts[4]}`;
+${texts[3]}`;
 
   try{
     await navigator.clipboard.writeText(allText);
-    $("msg").textContent = "✓ 프롬프트 5종이 한 번에 복사되었습니다.";
+    $("msg").textContent = "✓ 프롬프트 4종이 한 번에 복사되었습니다.";
 
     const btn = $("copyAllBtn");
     if(btn){
       btn.classList.add("copied");
-      btn.textContent = "✓ 5종 모두 복사 완료!";
+      btn.textContent = "✓ 4종 모두 복사 완료!";
       setTimeout(() => {
         btn.classList.remove("copied");
-        btn.textContent = "📋 프롬프트 5종 한 번에 복사";
+        btn.textContent = "📋 프롬프트 4종 한 번에 복사";
       }, 2200);
     }
 
@@ -1248,8 +1195,7 @@ function sample(){
   $("fontStyle").value = "단정한 명조체 느낌";
   $("textPosition").value = "왼쪽 영역";
   $("creatorPosition").value = "오른쪽 아래";
-  $("imageRatio1").value = "4:5";
-  $("imageRatio2").value = "9:16";
+  $("imageRatio2").value = "4:5";
   $("imageRatio3").value = "9:16";
   $("flowRatio1").value = "9:16";
   $("flowRatio2").value = "9:16";
@@ -1262,12 +1208,11 @@ function resetAll(){
   $("fontStyle").selectedIndex = 0;
   $("textPosition").selectedIndex = 0;
   $("creatorPosition").selectedIndex = 0;
-  $("out45").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 시화 이미지 프롬프트가 표시됩니다.";
-  $("out916text").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 시화 이미지 프롬프트(글자 포함)가 표시됩니다.";
-  $("out916bg").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 배경 이미지 프롬프트(글자 없음)가 표시됩니다.";
-  $("outFlowText").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.";
-  $("outFlowBg").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.";
-  ["status-out45","status-out916text","status-out916bg","status-outFlowText","status-outFlowBg"].forEach(id => {
+  $("out916text").textContent = "입력 후 “프롬프트 4종 만들기”를 누르면 여기에 시화 이미지 프롬프트(글자 포함)가 표시됩니다.";
+  $("out916bg").textContent = "입력 후 “프롬프트 4종 만들기”를 누르면 여기에 배경 이미지 프롬프트(글자 없음)가 표시됩니다.";
+  $("outFlowText").textContent = "입력 후 “프롬프트 4종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.";
+  $("outFlowBg").textContent = "입력 후 “프롬프트 4종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.";
+  ["status-out916text","status-out916bg","status-outFlowText","status-outFlowBg"].forEach(id => {
     const el = $(id);
     if(el) el.classList.remove("show");
   });
@@ -1275,7 +1220,7 @@ function resetAll(){
   const copyAllBtn = $("copyAllBtn");
   if(copyAllBtn){
     copyAllBtn.classList.remove("copied");
-    copyAllBtn.textContent = "📋 프롬프트 5종 한 번에 복사";
+    copyAllBtn.textContent = "📋 프롬프트 4종 한 번에 복사";
   }
 
   $("msg").textContent = "";
