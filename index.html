@@ -711,8 +711,8 @@
           </div>
 
           <div class="helpbox blue">
-            <b>이미지 프롬프트 비율 선택</b><br>
-            아래 3개의 이미지 프롬프트는 각각 원하는 비율을 따로 선택할 수 있습니다.
+            <b>이미지·영상 비율 선택</b><br>
+            각 결과물의 사용 목적에 맞게 원하는 비율을 선택해보세요.
           </div>
 
           <div class="row">
@@ -729,21 +729,7 @@
             </div>
 
             <div>
-              <label for="imageRatio2">② 시화 이미지 프롬프트(글자 포함) 비율</label>
-              <select id="imageRatio2">
-                <option value="1:1">1:1 → 블로그·SNS 썸네일</option>
-                <option value="4:5">4:5 → 시화·인스타그램 세로 콘텐츠</option>
-                <option value="3:4">3:4 → 교육 안내·포스터·카드뉴스</option>
-                <option value="9:16" selected>9:16 → 쇼츠·릴스·Google Flow 세로영상</option>
-                <option value="16:9">16:9 → 유튜브·PPT·영상·인포그래픽</option>
-                <option value="4:3">4:3 → 강의자료·교육용 이미지</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row">
-            <div>
-              <label for="imageRatio3">③ 배경 이미지 프롬프트(글자 없음) 비율</label>
+              <label for="imageRatio3">② 배경 이미지 프롬프트(글자 없음) 비율</label>
               <select id="imageRatio3">
                 <option value="1:1">1:1 → 블로그·SNS 썸네일</option>
                 <option value="4:5">4:5 → 시화·인스타그램 세로 콘텐츠</option>
@@ -753,26 +739,24 @@
                 <option value="4:3">4:3 → 강의자료·교육용 이미지</option>
               </select>
             </div>
+          </div>
 
+          <div class="row">
             <div>
-              <label for="flowRatio1">④ Google Flow 영상 프롬프트(글자 포함 시화용) 비율</label>
+              <label for="flowRatio1">③ Google Flow 영상 프롬프트(글자 포함 시화용) 비율</label>
               <select id="flowRatio1">
                 <option value="9:16" selected>9:16 → 쇼츠·릴스·Google Flow 세로영상</option>
                 <option value="16:9">16:9 → 유튜브·PPT·영상·인포그래픽</option>
               </select>
             </div>
-          </div>
 
-          <div class="row">
             <div>
-              <label for="flowRatio2">⑤ Google Flow 영상 프롬프트(글자 없는 배경용) 비율</label>
+              <label for="flowRatio2">④ Google Flow 영상 프롬프트(글자 없는 배경용) 비율</label>
               <select id="flowRatio2">
                 <option value="9:16" selected>9:16 → 쇼츠·릴스·Google Flow 세로영상</option>
                 <option value="16:9">16:9 → 유튜브·PPT·영상·인포그래픽</option>
               </select>
             </div>
-
-            <div></div>
           </div>
 
           <div class="helpbox blue">
@@ -813,7 +797,7 @@
       <article class="prompt-card">
         <div class="prompt-card-header">
           <div>
-            <span class="prompt-badge badge-45">시화 이미지 프롬프트</span>
+            <span class="prompt-badge badge-45">① 시화 이미지 프롬프트</span>
             <h4>선택한 비율의 시화 이미지 만들기</h4>
             <p>선택한 비율 안에 시 전문과 그림, 창작자 이름이 함께 들어가는 시화 이미지 제작용입니다.</p>
           </div>
@@ -823,18 +807,7 @@
         <div id="status-out45" class="copy-status">✓ 복사가 완료되었습니다.</div>
       </article>
 
-      <article class="prompt-card">
-        <div class="prompt-card-header">
-          <div>
-            <span class="prompt-badge badge-916text">① 시화 이미지 프롬프트(글자 포함)</span>
-            <h4>선택한 비율의 시화 이미지 만들기 (글자 포함)</h4>
-            <p>선택한 비율 안에 시 원문과 그림, 창작자 이름이 모두 들어가는 이미지 제작용입니다.</p>
-          </div>
-          <button class="copy small-copy" onclick="copyPrompt('out916text', '시화 이미지 프롬프트(글자 포함)가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
-        </div>
-        <div id="out916text" class="output">입력 후 “프롬프트 4종 만들기”를 누르면 여기에 시화 이미지 프롬프트(글자 포함)가 표시됩니다.</div>
-        <div id="status-out916text" class="copy-status">✓ 복사가 완료되었습니다.</div>
-      </article>
+      
 
       <article class="prompt-card">
         <div class="prompt-card-header">
@@ -994,7 +967,7 @@ function commonInput(){
     fontStyle: $("fontStyle").value,
     textPosition: $("textPosition").value,
     creatorPosition: $("creatorPosition").value,
-    imageRatio2: $("imageRatio2").value,
+    imageRatio1: $("imageRatio1").value,
     imageRatio3: $("imageRatio3").value,
     flowRatio1: $("flowRatio1").value,
     flowRatio2: $("flowRatio2").value
@@ -1021,7 +994,7 @@ function makePrompts(){
   const data = commonInput();
 
   if(!data.poem){
-    $("out916text").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
+    $("out45").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
     $("out916bg").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
     $("outFlowText").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
     $("outFlowBg").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
@@ -1061,36 +1034,59 @@ ${data.poem}
 - 시 원문 배치 위치: ${data.textPosition}
 - 시화 창작자 이름 배치 위치: ${data.creatorPosition}`;
 
-  const prompt916Text = `아래에 있는 어른의 창작시를 바탕으로,
-선택한 화면비에 맞는 시화 이미지를 만들어줘.
+  const prompt45 = `아래에 있는 어른의 창작시를 천천히 읽고,
+어른이 살아온 경험과 감정을 존중하면서
+청소년의 새로운 시선과 감성으로 다시 해석한
+‘세대공감 시화(詩畵)’ 형식의 한 장의 작품으로 만들어줘.
 
-핵심 목적은 시의 감성과 내용을 유지하면서,
-선택한 비율에 맞게 재구성된 시화 이미지를 만드는 것이다.
+이 작품은 시의 내용을 단순히 설명하는 삽화가 아니라,
+어른의 창작시와 청소년의 감정적 해석이 한 화면에서 만나는 작품이어야 한다.
 
-이 이미지는 ‘시화’ 형식이어야 하며,
-그림뿐 아니라 시 제목, 시인 이름, 창작시 원문 전체, 시화 창작자 이름도 이미지 안에 함께 들어가야 한다.
+또한 아래에 제공하는 창작시 Text 전체를 이미지 안에 함께 넣고,
+선택한 글씨체 분위기까지 작품 전체와 조화롭게 표현해줘.
 
 ${baseInfo}
 
 ${interpret}
-- 최종 이미지 비율: ${data.imageRatio2}
-- 활용 목적: ${ratioUseText(data.imageRatio2)}
+- 최종 이미지 비율: ${data.imageRatio1}
+- 활용 목적: ${ratioUseText(data.imageRatio1)}
 
-[시화 이미지 제작 조건 - 글자 포함]
-1. ${data.imageRatio2} 비율로 제작해줘.
-2. 선택한 화면비에 맞게 핵심 상징, 그림, 시 원문, 창작자 이름의 배치를 안정적으로 재구성해줘.
-3. 시의 감정과 상징을 중심으로 감성적이고 예술적인 시화 작품처럼 표현해줘.
-4. 시 전문과 그림이 서로 겹치지 않도록 하고, 선택한 화면비에서도 글자가 작아지지 않게 충분히 크게 배치해줘.
-5. 한글 가독성을 매우 중요하게 생각해서, 스마트폰 화면이나 발표 화면에서도 읽기 쉬운 크기와 행간으로 구성해줘.
-6. 화면 가장자리에는 너무 가까이 붙지 않도록 안전 여백을 충분히 남겨줘.
-7. 시 원문을 요약하거나 줄이거나 바꾸지 말고 원문 그대로 넣어줘.
-8. 시 제목, 시인 이름, 창작자 이름도 정확하게 입력된 그대로 넣어줘.
-9. 시 원문은 ${data.textPosition}에 배치하되, ${data.imageRatio2} 화면비에서 가장 읽기 좋고 안정적인 방식으로 조정해줘.
-10. 시 원문과 제목, 시인 이름은 "${data.fontStyle}"의 분위기로 표현하되, 장식보다 가독성을 우선해줘.
-11. 창작자 표기 ${data.creator ? `"${data.creator}"` : ""}는 ${data.creatorPosition}에 자연스럽게 배치해줘.
-12. 그림의 핵심 상징, 시 원문, 창작자 이름이 서로 충돌하지 않도록 층위를 정리해줘.
-13. 이 이미지는 한 장의 완성도 높은 시화 포스터처럼 표현해줘.
-14. 최우선 목표는 ‘${data.imageRatio2} 화면 안에서 시의 감정과 글이 모두 살아 있는 시화 이미지’를 만드는 것이다.`;
+[시화 이미지 제작 조건]
+1. ${data.imageRatio1} 비율의 시화 작품으로 제작해줘.
+2. 어른의 시를 단순히 그림으로 옮기지 말고, 시에서 느껴지는 감정과 의미를 청소년의 시각 언어로 재해석해줘.
+3. 청소년이 선택한 ‘가장 마음에 남은 시 구절’, ‘한 단어’, ‘떠오른 장면’, ‘인물 표현 방식’을 작품의 정서와 구도에 자연스럽게 반영해줘.
+4. 시에 등장하는 모든 내용을 그대로 그리지 말고, 작품 전체를 대표하는 핵심 상징 1~3개를 중심으로 구성해줘.
+5. 어른의 경험과 청소년의 새로운 감성이 자연스럽게 이어지는 따뜻한 분위기를 만들어줘.
+6. 색감, 빛, 그림자, 계절, 공간을 활용해 시의 정서를 시각적으로 보여줘.
+7. 화면을 사물로 가득 채우지 말고 충분한 여백을 두어 시의 여운과 감정을 느낄 수 있게 해줘.
+8. 인물 표현은 ‘${data.personStyle}’ 조건을 우선 반영해줘.
+9. 지나치게 만화적이거나 장면 설명 중심의 그림은 피하고, 한 장의 전시용 시화 작품처럼 완성도 있게 표현해줘.
+10. ${data.imageRatio1} 화면비 안에서 그림, 시 원문, 창작자 이름이 서로 겹치지 않도록 안정적인 레이아웃을 만들어줘.
+
+[이미지 안의 창작시 Text 배치 조건 - 매우 중요]
+11. 위에 제공한 어른의 창작시 원문 전체를 이미지 안에 반드시 넣어줘.
+12. 시 원문을 요약하거나 줄이거나 바꾸지 말고 입력된 Text를 그대로 사용해줘.
+13. 시의 단어, 조사, 띄어쓰기, 문장부호를 임의로 변경하지 말아줘.
+14. 시의 연과 행의 줄바꿈을 가능한 한 원문 그대로 유지해줘.
+15. 새로운 시구나 문장을 임의로 추가하지 말아줘.
+16. ${data.title ? `시 제목 "${data.title}"을 작품 안에 분명하게 표시해줘.` : "시 제목이 제공되지 않았으므로 임의의 제목을 만들지 말아줘."}
+17. ${data.author ? `시인 이름 "${data.author}"도 제목 주변이나 시 본문 주변에 자연스럽게 표시해줘.` : "시인 이름이 제공되지 않았으므로 임의의 작가 이름을 넣지 말아줘."}
+18. 시 원문은 화면의 ${data.textPosition}에 배치해줘.
+19. 시 원문과 제목, 시인 이름은 전체적으로 ‘${data.fontStyle}’의 분위기로 표현해줘.
+20. 글씨체의 개성보다 한글 가독성과 원문 정확성을 더 우선해줘.
+21. 제목은 본문보다 조금 더 크고 분명하게, 시인 이름은 제목보다 작고 단정하게 표현해줘.
+22. 시 본문은 충분한 행간과 여백을 확보해 편안하게 읽히도록 구성해줘.
+23. 글자가 그림에 묻히지 않도록 배경 대비를 확보하고, 필요하면 시가 들어가는 영역의 배경을 단순하거나 부드럽게 만들어줘.
+24. 선택한 글씨체 느낌이 지나치게 장식적이어서 한글이 왜곡되지 않도록 해줘.
+
+[시화 창작자 이름·소속 표시 조건]
+25. ${data.creator ? `시화를 만든 창작자 표기 "${data.creator}"를 이미지 안에 반드시 넣어줘.` : "시화 창작자 정보가 제공되지 않았으므로 임의의 창작자 이름이나 소속을 만들지 말아줘."}
+26. ${data.creator ? `창작자 표기 "${data.creator}"의 글자를 한 글자도 바꾸거나 줄이지 말고 입력된 그대로 정확하게 사용해줘.` : ""}
+27. 창작자 표기는 시 제목이나 시 본문보다 작게 표현하되, 작품을 감상할 때 충분히 읽을 수 있도록 선명하게 만들어줘.
+28. 창작자 표기는 ${data.creatorPosition}에 자연스럽게 배치해줘.
+29. 창작자 이름이 그림이나 시 원문과 겹치지 않도록 하고, 배경과 충분한 명도·색상 대비를 확보해줘.
+30. 창작자 표기는 워터마크처럼 과도하게 크거나 강하게 표현하지 말고, 전시 작품의 작가 서명·작품 정보처럼 단정하고 품격 있게 보여줘.
+31. 최우선 목표는 ‘어른의 창작시 + 청소년의 해석 + 감성적인 시각 이미지 + 시화를 만든 창작자의 정확한 이름·소속’이 한 작품 안에서 자연스럽게 연결되는 ${data.imageRatio1} 세대공감 시화를 만드는 것이다.`;
 
   const prompt916Bg = `아래에 있는 어른의 창작시를 바탕으로,
 선택한 화면비에 맞는 배경 이미지를 만들어줘.
@@ -1217,7 +1213,7 @@ ${baseInfo}
 13. 전체 무드는 ‘세대공감 시화의 감정을 담은 조용한 ${flowOrientationText(data.flowRatio2)} 배경 영상’이어야 해.
 14. 최우선 목표는 ‘글자는 없지만 시의 정서가 살아 있고, Google Flow에서 활용하기 좋은 ${data.flowRatio2} 배경 영상’을 만드는 것이다.`;
 
-  $("out916text").textContent = prompt916Text;
+  $("out45").textContent = prompt45;
   $("out916bg").textContent = prompt916Bg;
   $("outFlowText").textContent = flowText;
   $("outFlowBg").textContent = flowBg;
@@ -1266,14 +1262,14 @@ async function copyPrompt(id, successMessage, buttonEl){
 }
 
 async function copyAllPrompts(){
-  const ids = ["out916text","out916bg","outFlowText","outFlowBg"];
+  const ids = ["out45","out916bg","outFlowText","outFlowBg"];
   const texts = ids.map(id => $(id).textContent.trim());
   if(texts.some(t => !t || t.includes("표시됩니다") || t.startsWith("먼저"))){
     $("msg").textContent = "먼저 프롬프트 4종을 생성해주세요.";
     return;
   }
 
-  const allText = `[1] 시화 이미지 프롬프트 (글자 포함)
+  const allText = `[1] 시화 이미지 프롬프트
 
 ${texts[0]}
 
@@ -1344,7 +1340,7 @@ function sample(){
   $("fontStyle").value = "단정한 명조체 느낌";
   $("textPosition").value = "왼쪽 영역";
   $("creatorPosition").value = "오른쪽 아래";
-  $("imageRatio2").value = "4:5";
+  $("imageRatio1").value = "4:5";
   $("imageRatio3").value = "9:16";
   $("flowRatio1").value = "9:16";
   $("flowRatio2").value = "9:16";
@@ -1358,11 +1354,12 @@ function resetAll(){
   $("fontStyle").selectedIndex = 0;
   $("textPosition").selectedIndex = 0;
   $("creatorPosition").selectedIndex = 0;
-  $("out916text").textContent = "입력 후 “프롬프트 4종 만들기”를 누르면 여기에 시화 이미지 프롬프트(글자 포함)가 표시됩니다.";
+  $("imageRatio1").value = "4:5";
+  $("out45").textContent = "입력 후 ‘프롬프트 4종 만들기’를 누르면 여기에 시화 이미지 프롬프트가 표시됩니다.";
   $("out916bg").textContent = "입력 후 “프롬프트 4종 만들기”를 누르면 여기에 배경 이미지 프롬프트(글자 없음)가 표시됩니다.";
   $("outFlowText").textContent = "입력 후 “프롬프트 4종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.";
   $("outFlowBg").textContent = "입력 후 “프롬프트 4종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.";
-  ["status-out916text","status-out916bg","status-outFlowText","status-outFlowBg"].forEach(id => {
+  ["status-out45","status-out916bg","status-outFlowText","status-outFlowBg"].forEach(id => {
     const el = $(id);
     if(el) el.classList.remove("show");
   });
