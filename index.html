@@ -253,6 +253,116 @@
     h1{font-size:30px}.section h2{font-size:23px}.hero{padding:24px 17px}
     .story-card,.flow-card,.panel,.check,.prompt-card{padding:16px} button{font-size:15px}
   }
+
+  .maker-section{
+    margin-top:30px;
+  }
+
+  .maker-card{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:24px;
+    align-items:center;
+    background:linear-gradient(135deg,#fffaf2,#eef4f2);
+    border:1px solid #dfd7cc;
+    border-radius:24px;
+    padding:24px 26px;
+    box-shadow:var(--shadow);
+  }
+
+  .maker-title{
+    font-size:14px;
+    font-weight:900;
+    color:var(--brick);
+    margin-bottom:6px;
+    letter-spacing:.04em;
+  }
+
+  .maker-name{
+    font-size:22px;
+    font-weight:900;
+    color:var(--navy);
+    line-height:1.5;
+  }
+
+  .maker-desc{
+    margin-top:6px;
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  .maker-links{
+    display:grid;
+    gap:8px;
+    min-width:320px;
+  }
+
+  .maker-link{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:11px 13px;
+    border-radius:12px;
+    background:rgba(255,255,255,.78);
+    border:1px solid #e5ddd3;
+    color:var(--ink);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:800;
+    transition:.2s;
+    word-break:break-all;
+  }
+
+  .maker-link:hover{
+    background:#fff;
+    transform:translateY(-1px);
+    box-shadow:0 6px 14px rgba(54,45,35,.08);
+  }
+
+  .maker-link .icon{
+    flex:none;
+    width:28px;
+    height:28px;
+    border-radius:9px;
+    display:grid;
+    place-items:center;
+    background:#f0e7dc;
+  }
+
+  @media (max-width:820px){
+    .maker-card{
+      grid-template-columns:1fr;
+    }
+
+    .maker-links{
+      min-width:0;
+      width:100%;
+    }
+  }
+
+  @media (max-width:767px){
+    .maker-card{
+      padding:20px 18px;
+      border-radius:18px;
+    }
+
+    .maker-name{
+      font-size:19px;
+    }
+
+    .maker-link{
+      font-size:14px;
+      padding:12px;
+    }
+  }
+
+
+  @media (max-width:767px){
+    .row > div:empty{
+      display:none;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -482,10 +592,75 @@
           </div>
 
           <div class="helpbox blue">
+            <b>이미지 프롬프트 비율 선택</b><br>
+            아래 3개의 이미지 프롬프트는 각각 원하는 비율을 따로 선택할 수 있습니다.
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="imageRatio1">① 시화 이미지 프롬프트 비율</label>
+              <select id="imageRatio1">
+                <option value="1:1">1:1 → 블로그·SNS 썸네일</option>
+                <option value="4:5" selected>4:5 → 시화·인스타그램 세로 콘텐츠</option>
+                <option value="3:4">3:4 → 교육 안내·포스터·카드뉴스</option>
+                <option value="9:16">9:16 → 쇼츠·릴스·Google Flow 세로영상</option>
+                <option value="16:9">16:9 → 유튜브·PPT·영상·인포그래픽</option>
+                <option value="4:3">4:3 → 강의자료·교육용 이미지</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="imageRatio2">② 시화 이미지 프롬프트(글자 포함) 비율</label>
+              <select id="imageRatio2">
+                <option value="1:1">1:1 → 블로그·SNS 썸네일</option>
+                <option value="4:5">4:5 → 시화·인스타그램 세로 콘텐츠</option>
+                <option value="3:4">3:4 → 교육 안내·포스터·카드뉴스</option>
+                <option value="9:16" selected>9:16 → 쇼츠·릴스·Google Flow 세로영상</option>
+                <option value="16:9">16:9 → 유튜브·PPT·영상·인포그래픽</option>
+                <option value="4:3">4:3 → 강의자료·교육용 이미지</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="imageRatio3">③ 배경 이미지 프롬프트(글자 없음) 비율</label>
+              <select id="imageRatio3">
+                <option value="1:1">1:1 → 블로그·SNS 썸네일</option>
+                <option value="4:5">4:5 → 시화·인스타그램 세로 콘텐츠</option>
+                <option value="3:4">3:4 → 교육 안내·포스터·카드뉴스</option>
+                <option value="9:16" selected>9:16 → 쇼츠·릴스·Google Flow 세로영상</option>
+                <option value="16:9">16:9 → 유튜브·PPT·영상·인포그래픽</option>
+                <option value="4:3">4:3 → 강의자료·교육용 이미지</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="flowRatio1">④ Google Flow 영상 프롬프트(글자 포함 시화용) 비율</label>
+              <select id="flowRatio1">
+                <option value="9:16" selected>9:16 → 쇼츠·릴스·Google Flow 세로영상</option>
+                <option value="16:9">16:9 → 유튜브·PPT·영상·인포그래픽</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="flowRatio2">⑤ Google Flow 영상 프롬프트(글자 없는 배경용) 비율</label>
+              <select id="flowRatio2">
+                <option value="9:16" selected>9:16 → 쇼츠·릴스·Google Flow 세로영상</option>
+                <option value="16:9">16:9 → 유튜브·PPT·영상·인포그래픽</option>
+              </select>
+            </div>
+
+            <div></div>
+          </div>
+
+          <div class="helpbox blue">
             <b>이번 페이지에서 생성되는 결과</b><br>
-            ① <b>4:5 시화 이미지 프롬프트</b><br>
-            ② <b>9:16 시화 이미지 프롬프트(글자 포함)</b><br>
-            ③ <b>9:16 배경 이미지 프롬프트(글자 없음)</b><br>
+            ① <b>시화 이미지 프롬프트</b><br>
+            ② <b>시화 이미지 프롬프트(글자 포함)</b><br>
+            ③ <b>배경 이미지 프롬프트(글자 없음)</b><br>
             ④ <b>Google Flow 영상 프롬프트(글자 포함 시화용)</b><br>
             ⑤ <b>Google Flow 영상 프롬프트(글자 없는 배경용)</b>
           </div>
@@ -520,39 +695,39 @@
       <article class="prompt-card">
         <div class="prompt-card-header">
           <div>
-            <span class="prompt-badge badge-45">4:5 시화 프롬프트</span>
-            <h4>전시형 세로 시화 이미지 만들기</h4>
-            <p>시 전문과 그림, 창작자 이름이 함께 들어가는 4:5 시화 이미지 제작용입니다.</p>
+            <span class="prompt-badge badge-45">시화 이미지 프롬프트</span>
+            <h4>선택한 비율의 시화 이미지 만들기</h4>
+            <p>선택한 비율 안에 시 전문과 그림, 창작자 이름이 함께 들어가는 시화 이미지 제작용입니다.</p>
           </div>
-          <button class="copy small-copy" onclick="copyPrompt('out45', '4:5 시화 프롬프트가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
+          <button class="copy small-copy" onclick="copyPrompt('out45', '시화 이미지 프롬프트가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
         </div>
-        <div id="out45" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 4:5 시화 프롬프트가 표시됩니다.</div>
+        <div id="out45" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 시화 이미지 프롬프트가 표시됩니다.</div>
         <div id="status-out45" class="copy-status">✓ 복사가 완료되었습니다.</div>
       </article>
 
       <article class="prompt-card">
         <div class="prompt-card-header">
           <div>
-            <span class="prompt-badge badge-916text">9:16 시화 프롬프트</span>
-            <h4>Google Flow용 세로 시화 이미지 만들기 (글자 포함)</h4>
-            <p>9:16 세로형 구도 안에 시 원문과 그림, 창작자 이름이 모두 들어가는 이미지 제작용입니다.</p>
+            <span class="prompt-badge badge-916text">시화 이미지 프롬프트(글자 포함)</span>
+            <h4>선택한 비율의 시화 이미지 만들기 (글자 포함)</h4>
+            <p>선택한 비율 안에 시 원문과 그림, 창작자 이름이 모두 들어가는 이미지 제작용입니다.</p>
           </div>
-          <button class="copy small-copy" onclick="copyPrompt('out916text', '9:16 시화 프롬프트가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
+          <button class="copy small-copy" onclick="copyPrompt('out916text', '시화 이미지 프롬프트(글자 포함)가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
         </div>
-        <div id="out916text" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 9:16 시화 프롬프트가 표시됩니다.</div>
+        <div id="out916text" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 시화 이미지 프롬프트(글자 포함)가 표시됩니다.</div>
         <div id="status-out916text" class="copy-status">✓ 복사가 완료되었습니다.</div>
       </article>
 
       <article class="prompt-card">
         <div class="prompt-card-header">
           <div>
-            <span class="prompt-badge badge-916bg">9:16 배경 프롬프트</span>
-            <h4>Google Flow용 세로 배경 이미지 만들기 (글자 없음)</h4>
+            <span class="prompt-badge badge-916bg">배경 이미지 프롬프트(글자 없음)</span>
+            <h4>선택한 비율의 배경 이미지 만들기 (글자 없음)</h4>
             <p>같은 시의 분위기를 유지하면서, 시·제목·작가·창작자 이름 없이 배경만 만드는 프롬프트입니다.</p>
           </div>
-          <button class="copy small-copy" onclick="copyPrompt('out916bg', '9:16 배경 프롬프트가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
+          <button class="copy small-copy" onclick="copyPrompt('out916bg', '배경 이미지 프롬프트(글자 없음)가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
         </div>
-        <div id="out916bg" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 9:16 배경 프롬프트가 표시됩니다.</div>
+        <div id="out916bg" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 배경 이미지 프롬프트(글자 없음)가 표시됩니다.</div>
         <div id="status-out916bg" class="copy-status">✓ 복사가 완료되었습니다.</div>
       </article>
 
@@ -560,7 +735,7 @@
         <div class="prompt-card-header">
           <div>
             <span class="prompt-badge badge-flow1">Google Flow 영상 프롬프트</span>
-            <h4>9:16 시화 이미지(글자 포함)를 영상으로 만들기</h4>
+            <h4>선택한 비율의 시화 이미지(글자 포함)를 영상으로 만들기</h4>
             <p>시 글자는 완전히 고정하고, 그림과 배경만 부드럽게 움직이도록 설계한 Flow용 프롬프트입니다.</p>
           </div>
           <button class="copy small-copy" onclick="copyPrompt('outFlowText', '글자 포함 시화용 Google Flow 프롬프트가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
@@ -573,8 +748,8 @@
         <div class="prompt-card-header">
           <div>
             <span class="prompt-badge badge-flow2">Google Flow 영상 프롬프트</span>
-            <h4>9:16 배경 이미지(글자 없음)를 영상으로 만들기</h4>
-            <p>글자 없는 9:16 배경 이미지를 부드러운 카메라 움직임과 분위기 중심의 세로 영상으로 확장하는 Flow용 프롬프트입니다.</p>
+            <h4>선택한 비율의 배경 이미지(글자 없음)를 영상으로 만들기</h4>
+            <p>글자 없는 배경 이미지를 선택한 Flow 비율에 맞는 분위기 중심 영상으로 확장하는 프롬프트입니다.</p>
           </div>
           <button class="copy small-copy" onclick="copyPrompt('outFlowBg', '글자 없는 배경용 Google Flow 프롬프트가 복사되었습니다.', this)">📋 이 프롬프트 복사</button>
         </div>
@@ -632,10 +807,40 @@
     </div>
   </section>
 
+
+  <section class="maker-section">
+    <div class="maker-card">
+      <div>
+        <div class="maker-title">웹페이지 제작</div>
+        <div class="maker-name">AI콘텐츠마케팅연구소 유쌤클래스 김유성</div>
+        <div class="maker-desc">
+          세대공감 AI 시화 창작 실습을 위한 교육용 웹페이지입니다.
+        </div>
+      </div>
+
+      <div class="maker-links">
+        <a class="maker-link" href="https://www.yussamclass.com" target="_blank" rel="noopener noreferrer">
+          <span class="icon">🌐</span>
+          <span>www.yussamclass.com</span>
+        </a>
+
+        <a class="maker-link" href="mailto:kyseong3@naver.com">
+          <span class="icon">✉️</span>
+          <span>kyseong3@naver.com</span>
+        </a>
+
+        <a class="maker-link" href="tel:01027819669">
+          <span class="icon">📞</span>
+          <span>010-2781-9669</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  세대공감 AI 시화 창작 실습 · 어른의 이야기와 청소년의 상상력이 만나는 창작 프로젝트
+  세대공감 AI 시화 창작 실습 · 제작: AI콘텐츠마케팅연구소 유쌤클래스 김유성
 </footer>
 
 <script>
@@ -658,8 +863,29 @@ function commonInput(){
     style: $("style").value,
     fontStyle: $("fontStyle").value,
     textPosition: $("textPosition").value,
-    creatorPosition: $("creatorPosition").value
+    creatorPosition: $("creatorPosition").value,
+    imageRatio1: $("imageRatio1").value,
+    imageRatio2: $("imageRatio2").value,
+    imageRatio3: $("imageRatio3").value,
+    flowRatio1: $("flowRatio1").value,
+    flowRatio2: $("flowRatio2").value
   };
+}
+
+function ratioUseText(ratio){
+  const map = {
+    "1:1":"블로그·SNS 썸네일용",
+    "4:5":"시화·인스타그램 세로 콘텐츠용",
+    "3:4":"교육 안내·포스터·카드뉴스용",
+    "9:16":"쇼츠·릴스·Google Flow 세로영상용",
+    "16:9":"유튜브·PPT·영상·인포그래픽용",
+    "4:3":"강의자료·교육용 이미지용"
+  };
+  return map[ratio] || "";
+}
+
+function flowOrientationText(ratio){
+  return ratio === "16:9" ? "가로형" : "세로형";
 }
 
 function makePrompts(){
@@ -717,10 +943,11 @@ ${data.poem}
 ${baseInfo}
 
 ${interpret}
-- 최종 이미지 비율: 4:5
+- 최종 이미지 비율: ${data.imageRatio1}
+- 활용 목적: ${ratioUseText(data.imageRatio1)}
 
-[4:5 시화 제작 조건]
-1. 세로형 4:5 비율의 시화 작품으로 제작해줘.
+[시화 이미지 제작 조건]
+1. ${data.imageRatio1} 비율의 시화 작품으로 제작해줘.
 2. 어른의 시를 단순히 그림으로 옮기지 말고, 시에서 느껴지는 감정과 의미를 청소년의 시각 언어로 재해석해줘.
 3. 시에 등장하는 모든 내용을 그대로 그리지 말고, 작품 전체를 대표하는 핵심 상징 1~3개를 중심으로 구성해줘.
 4. 어른의 경험과 청소년의 새로운 감성이 자연스럽게 이어지는 따뜻한 분위기를 만들어줘.
@@ -728,7 +955,7 @@ ${interpret}
 6. 화면을 사물로 가득 채우지 말고 충분한 여백을 두어 시의 여운과 감정을 느낄 수 있게 해줘.
 7. 사람을 표현할 경우 얼굴을 크게 강조하기보다 뒷모습, 실루엣, 손, 작은 인물 등으로 표현해 감상자가 자신의 경험을 떠올릴 수 있게 해줘.
 8. 지나치게 만화적이거나 장면 설명 중심의 그림은 피하고, 한 장의 전시용 시화 작품처럼 완성도 있게 표현해줘.
-9. 4:5 세로 구도 안에서 그림, 시 원문, 창작자 이름이 서로 겹치지 않도록 안정적인 레이아웃을 만들어줘.
+9. ${data.imageRatio1} 화면비 안에서 그림, 시 원문, 창작자 이름이 서로 겹치지 않도록 안정적인 레이아웃을 만들어줘.
 10. 위에 제공한 어른의 창작시 원문 전체를 이미지 안에 반드시 넣어줘.
 11. 시 원문을 요약하거나 줄이거나 바꾸지 말고 입력된 Text를 그대로 사용해줘.
 12. 시의 연과 행의 줄바꿈을 가능한 한 원문 그대로 유지해줘.
@@ -743,13 +970,13 @@ ${interpret}
 21. ${data.creator ? `창작자 표기 "${data.creator}"의 글자를 한 글자도 바꾸거나 줄이지 말고 입력된 그대로 정확하게 사용해줘.` : ""}
 22. 창작자 표기는 시 제목이나 시 본문보다 작게 표현하되 충분히 읽을 수 있도록 선명하게 만들어줘.
 23. 창작자 표기는 ${data.creatorPosition}에 자연스럽게 배치해줘.
-24. 최우선 목표는 ‘어른의 창작시 + 청소년의 해석 + 감성적인 시각 이미지 + 시화를 만든 창작자의 정확한 이름·소속’이 한 작품 안에서 자연스럽게 연결되는 4:5 세대공감 시화를 만드는 것이다.`;
+24. 최우선 목표는 ‘어른의 창작시 + 청소년의 해석 + 감성적인 시각 이미지 + 시화를 만든 창작자의 정확한 이름·소속’이 한 작품 안에서 자연스럽게 연결되는 ${data.imageRatio1} 세대공감 시화를 만드는 것이다.`;
 
   const prompt916Text = `아래에 있는 어른의 창작시를 바탕으로,
-Google Flow에서 영상 소재로 활용할 수 있는 9:16 세로형 시화 이미지를 만들어줘.
+선택한 화면비에 맞는 시화 이미지를 만들어줘.
 
-핵심 목적은 4:5 시화의 감성과 내용을 유지하면서,
-세로 영상 화면에 맞게 재구성된 9:16 비율의 시화 이미지를 만드는 것이다.
+핵심 목적은 시의 감성과 내용을 유지하면서,
+선택한 비율에 맞게 재구성된 시화 이미지를 만드는 것이다.
 
 이 이미지는 ‘시화’ 형식이어야 하며,
 그림뿐 아니라 시 제목, 시인 이름, 창작시 원문 전체, 시화 창작자 이름도 이미지 안에 함께 들어가야 한다.
@@ -757,27 +984,27 @@ Google Flow에서 영상 소재로 활용할 수 있는 9:16 세로형 시화 �
 ${baseInfo}
 
 ${interpret}
-- 최종 이미지 비율: 9:16
+- 최종 이미지 비율: ${data.imageRatio2}
+- 활용 목적: ${ratioUseText(data.imageRatio2)}
 
-[9:16 시화 이미지 제작 조건 - 글자 포함]
-1. 세로 영상용 9:16 비율로 제작해줘.
-2. 4:5 전시형 시화의 분위기를 유지하되, 세로 화면에 더 잘 맞도록 위아래 여백과 시선 흐름을 고려해 재구성해줘.
+[시화 이미지 제작 조건 - 글자 포함]
+1. ${data.imageRatio2} 비율로 제작해줘.
+2. 선택한 화면비에 맞게 핵심 상징, 그림, 시 원문, 창작자 이름의 배치를 안정적으로 재구성해줘.
 3. 시의 감정과 상징을 중심으로 감성적이고 예술적인 시화 작품처럼 표현해줘.
-4. 상단, 중앙, 하단이 자연스럽게 흐르는 세로 구도를 활용해 영상의 첫 장면처럼 인상적인 구성을 만들어줘.
-5. 시 전문과 그림이 서로 겹치지 않도록 하고, 세로 화면에서도 글자가 작아지지 않게 충분히 크게 배치해줘.
-6. 한글 가독성을 매우 중요하게 생각해서, 스마트폰 화면에서도 읽기 쉬운 크기와 행간으로 구성해줘.
-7. 화면 상하단 가장자리에는 너무 가까이 붙지 않도록 안전 여백을 충분히 남겨줘.
-8. 시 원문을 요약하거나 줄이거나 바꾸지 말고 원문 그대로 넣어줘.
-9. 시 제목, 시인 이름, 창작자 이름도 정확하게 입력된 그대로 넣어줘.
-10. 시 원문은 ${data.textPosition}에 배치하되, 9:16 세로 구도에서 가장 읽기 좋고 안정적인 방식으로 조정해줘.
-11. 시 원문과 제목, 시인 이름은 "${data.fontStyle}"의 분위기로 표현하되, 장식보다 가독성을 우선해줘.
-12. 창작자 표기 ${data.creator ? `"${data.creator}"` : ""}는 ${data.creatorPosition}에 자연스럽게 배치해줘.
-13. 그림의 핵심 상징, 시 원문, 창작자 이름이 서로 충돌하지 않도록 층위를 정리해줘.
-14. 이 이미지는 이후 Google Flow에서 영상으로 활용될 수 있으므로, 한 장의 세로 시화 포스터처럼 완성도 있게 표현해줘.
-15. 최우선 목표는 ‘세로형 9:16 화면 안에서 시의 감정과 글이 모두 살아 있는 시화 이미지’를 만드는 것이다.`;
+4. 시 전문과 그림이 서로 겹치지 않도록 하고, 선택한 화면비에서도 글자가 작아지지 않게 충분히 크게 배치해줘.
+5. 한글 가독성을 매우 중요하게 생각해서, 스마트폰 화면이나 발표 화면에서도 읽기 쉬운 크기와 행간으로 구성해줘.
+6. 화면 가장자리에는 너무 가까이 붙지 않도록 안전 여백을 충분히 남겨줘.
+7. 시 원문을 요약하거나 줄이거나 바꾸지 말고 원문 그대로 넣어줘.
+8. 시 제목, 시인 이름, 창작자 이름도 정확하게 입력된 그대로 넣어줘.
+9. 시 원문은 ${data.textPosition}에 배치하되, ${data.imageRatio2} 화면비에서 가장 읽기 좋고 안정적인 방식으로 조정해줘.
+10. 시 원문과 제목, 시인 이름은 "${data.fontStyle}"의 분위기로 표현하되, 장식보다 가독성을 우선해줘.
+11. 창작자 표기 ${data.creator ? `"${data.creator}"` : ""}는 ${data.creatorPosition}에 자연스럽게 배치해줘.
+12. 그림의 핵심 상징, 시 원문, 창작자 이름이 서로 충돌하지 않도록 층위를 정리해줘.
+13. 이 이미지는 한 장의 완성도 높은 시화 포스터처럼 표현해줘.
+14. 최우선 목표는 ‘${data.imageRatio2} 화면 안에서 시의 감정과 글이 모두 살아 있는 시화 이미지’를 만드는 것이다.`;
 
   const prompt916Bg = `아래에 있는 어른의 창작시를 바탕으로,
-Google Flow에서 영상 배경으로 활용할 수 있는 9:16 세로형 배경 이미지를 만들어줘.
+선택한 화면비에 맞는 배경 이미지를 만들어줘.
 
 핵심 목적은 위 시의 감정, 상징, 색감, 분위기를 유지하면서도,
 이미지 안에는 어떤 글자도 넣지 않은 깨끗한 배경 장면을 만드는 것이다.
@@ -790,24 +1017,25 @@ ${baseInfo}
 - 색감: ${safeValue(data.color, "시의 정서에 어울리는 따뜻하고 감성적인 색감을 선택해줘")}
 - 계절·시간·공간: ${safeValue(data.space, "시의 분위기에 어울리는 계절, 시간, 공간을 자연스럽게 설정해줘")}
 - 표현 스타일: ${data.style}
-- 최종 이미지 비율: 9:16
+- 최종 이미지 비율: ${data.imageRatio3}
+- 활용 목적: ${ratioUseText(data.imageRatio3)}
 
-[9:16 배경 이미지 제작 조건 - 글자 없음]
-1. 세로 영상용 9:16 비율의 배경 이미지를 만들어줘.
+[배경 이미지 제작 조건 - 글자 없음]
+1. ${data.imageRatio3} 비율의 배경 이미지를 만들어줘.
 2. 시의 감정과 상징을 시각적으로 재해석한 장면을 만들어주되, 이 버전은 배경 전용 이미지이므로 시 제목, 시인 이름, 시 원문, 창작자 이름 등 모든 글자를 넣지 말아줘.
 3. 화면 안에 한글, 영문, 숫자, 사인, 워터마크, 로고, 장식 문자 등 어떤 텍스트 요소도 포함하지 말아줘.
-4. 시의 핵심 상징과 분위기를 유지하면서도, 나중에 Google Flow에서 텍스트나 움직임을 덧입히기 좋도록 깨끗한 여백을 확보해줘.
-5. 세로 영상 구도에 맞게 시선이 자연스럽게 흐르도록 위아래 깊이감이 있는 구성을 만들어줘.
+4. 시의 핵심 상징과 분위기를 유지하면서도, 나중에 텍스트나 움직임을 덧입히기 좋도록 깨끗한 여백을 확보해줘.
+5. 선택한 화면비에 맞게 시선이 자연스럽게 흐르도록 깊이감 있는 구성을 만들어줘.
 6. 인물이나 사물을 넣더라도 너무 복잡하지 않게 구성하고, 감정적 여운이 남는 장면으로 표현해줘.
-7. 9:16 화면의 상단 또는 중앙 또는 하단 한쪽에 상대적으로 넓고 깨끗한 공간을 남겨, 이후 자막이나 모션 그래픽이 올라가도 어색하지 않게 해줘.
+7. 화면의 상단 또는 중앙 또는 하단 한쪽에 상대적으로 넓고 깨끗한 공간을 남겨, 이후 자막이나 모션 그래픽이 올라가도 어색하지 않게 해줘.
 8. 그림의 전체 무드는 글자가 포함된 시화 버전과 같은 세계관과 색감을 유지해줘.
 9. 지나치게 설명적인 장면 대신 상징과 분위기가 살아 있는 예술적인 배경 이미지로 표현해줘.
-10. 최우선 목표는 ‘시의 감정은 살아 있지만 글자는 없는, Google Flow용 9:16 세로 배경 이미지’를 만드는 것이다.`;
+10. 최우선 목표는 ‘시의 감정은 살아 있지만 글자는 없는, ${data.imageRatio3} 배경 이미지’를 만드는 것이다.`;
 
-  const flowText = `Google Flow에서 사용할 9:16 세로형 영상 생성 프롬프트를 만들어줘.
+  const flowText = `Google Flow에서 사용할 ${data.flowRatio1} ${flowOrientationText(data.flowRatio1)} 영상 생성 프롬프트를 만들어줘.
 
 기준 이미지:
-- 9:16 비율의 완성된 시화 이미지
+- ${data.flowRatio1} 비율의 완성된 시화 이미지
 - 시 제목, 시인 이름, 창작시 원문, 시화 창작자 이름이 모두 이미 정확하게 들어가 있는 이미지
 - 시의 분위기: ${safeValue(data.emotion, "감성적이고 서정적인 분위기")}
 - 핵심 상징: ${safeValue(data.symbol, "시를 대표하는 핵심 상징")}
@@ -827,7 +1055,7 @@ ${baseInfo}
 10. 텍스트 영역은 처음 프레임부터 마지막 프레임까지 선명하고 완전히 동일하게 유지해줘.
 
 [카메라와 움직임 제한]
-11. 영상 비율은 9:16 세로형으로 유지해줘.
+11. 영상 비율은 ${data.flowRatio1} ${flowOrientationText(data.flowRatio1)}으로 유지해줘.
 12. 텍스트가 있는 부분은 고정하고, 움직임은 그림과 배경 요소에만 제한해줘.
 13. 가능하면 카메라 자체를 크게 이동시키지 말고, 고정 카메라 또는 매우 미세한 움직임만 사용해줘.
 14. 줌인을 사용할 경우 텍스트가 확대·축소되어 재샘플링되거나 흐려지지 않을 정도로 매우 약하게 적용해줘.
@@ -862,21 +1090,21 @@ ${baseInfo}
 
 최우선 목표:
 ‘원본 시화 이미지 안의 한글 텍스트는 처음부터 끝까지 완전히 동일하고 선명하게 고정하고,
-그림과 배경의 비텍스트 요소만 매우 부드럽게 움직이는 9:16 Google Flow 세로 영상’을 만들어줘.`;
+그림과 배경의 비텍스트 요소만 매우 부드럽게 움직이는 ${data.flowRatio1} Google Flow 영상’을 만들어줘.`;
 
-  const flowBg = `Google Flow에서 사용할 9:16 세로형 영상 생성 프롬프트를 만들어줘.
+  const flowBg = `Google Flow에서 사용할 ${data.flowRatio2} ${flowOrientationText(data.flowRatio2)} 영상 생성 프롬프트를 만들어줘.
 
 기준 이미지:
-- 9:16 비율의 글자 없는 배경 이미지
-- 시의 감정과 상징을 담고 있지만 텍스트는 없는 세로형 배경 장면
+- ${data.flowRatio2} 비율의 글자 없는 배경 이미지
+- 시의 감정과 상징을 담고 있지만 텍스트는 없는 배경 장면
 - 시의 분위기: ${safeValue(data.emotion, "감성적이고 서정적인 분위기")}
 - 핵심 상징: ${safeValue(data.symbol, "시를 대표하는 핵심 상징")}
 - 색감: ${safeValue(data.color, "따뜻하고 감성적인 색감")}
 - 공간 분위기: ${safeValue(data.space, "시의 정서에 어울리는 공간")}
 
 영상 생성 조건:
-1. 원본 배경 이미지의 감성과 색감을 유지하면서, 조용히 살아 움직이는 9:16 세로형 영상으로 만들어줘.
-2. 영상 비율은 9:16 세로형으로 유지해줘.
+1. 원본 배경 이미지의 감성과 색감을 유지하면서, 조용히 살아 움직이는 ${data.flowRatio2} ${flowOrientationText(data.flowRatio2)} 영상으로 만들어줘.
+2. 영상 비율은 ${data.flowRatio2} ${flowOrientationText(data.flowRatio2)}으로 유지해줘.
 3. 이 버전은 이후 자막이나 시 텍스트, 내레이션과 함께 사용할 수 있어야 하므로 화면 안에 어떤 글자도 새로 만들지 말아줘.
 4. 자막이 올라갈 수 있도록 화면 한쪽 또는 중앙에 비교적 깨끗하고 안정적인 여백을 유지해줘.
 5. 카메라 움직임은 매우 부드럽고 안정적으로 해줘. 예: 느린 줌인, 미세한 패닝, 부드러운 패럴랙스 느낌.
@@ -887,8 +1115,8 @@ ${baseInfo}
 10. 빠른 컷 전환, 과도한 줌, 강한 효과, 과장된 움직임은 피하고 잔잔한 영상미를 우선해줘.
 11. 이 영상은 시 낭송 자막 또는 설명 텍스트를 나중에 올리기 좋은 배경 영상이어야 해.
 12. 영상 길이는 약 5초에서 8초 정도의 인상을 주는 연출로 생각해줘.
-13. 전체 무드는 ‘세대공감 시화의 감정을 담은 조용한 세로형 배경 영상’이어야 해.
-14. 최우선 목표는 ‘글자는 없지만 시의 정서가 살아 있고, Google Flow에서 활용하기 좋은 9:16 세로 배경 영상’을 만드는 것이다.`;
+13. 전체 무드는 ‘세대공감 시화의 감정을 담은 조용한 ${flowOrientationText(data.flowRatio2)} 배경 영상’이어야 해.
+14. 최우선 목표는 ‘글자는 없지만 시의 정서가 살아 있고, Google Flow에서 활용하기 좋은 ${data.flowRatio2} 배경 영상’을 만드는 것이다.`;
 
   $("out45").textContent = prompt45;
   $("out916text").textContent = prompt916Text;
@@ -947,31 +1175,31 @@ async function copyAllPrompts(){
     return;
   }
 
-  const allText = `[1] 4:5 시화 프롬프트
+  const allText = `[1] 시화 이미지 프롬프트
 
 ${texts[0]}
 
 ==================================================
 
-[2] 9:16 시화 프롬프트 (글자 포함)
+[2] 시화 이미지 프롬프트(글자 포함) (글자 포함)
 
 ${texts[1]}
 
 ==================================================
 
-[3] 9:16 배경 프롬프트 (글자 없음)
+[3] 배경 이미지 프롬프트(글자 없음) (글자 없음)
 
 ${texts[2]}
 
 ==================================================
 
-[4] Google Flow 영상 프롬프트 (9:16 시화 이미지용)
+[4] Google Flow 영상 프롬프트 (글자 포함 시화용)
 
 ${texts[3]}
 
 ==================================================
 
-[5] Google Flow 영상 프롬프트 (9:16 배경 이미지용)
+[5] Google Flow 영상 프롬프트 (글자 없는 배경용)
 
 ${texts[4]}`;
 
@@ -1020,6 +1248,11 @@ function sample(){
   $("fontStyle").value = "단정한 명조체 느낌";
   $("textPosition").value = "왼쪽 영역";
   $("creatorPosition").value = "오른쪽 아래";
+  $("imageRatio1").value = "4:5";
+  $("imageRatio2").value = "9:16";
+  $("imageRatio3").value = "9:16";
+  $("flowRatio1").value = "9:16";
+  $("flowRatio2").value = "9:16";
   makePrompts();
 }
 
@@ -1029,9 +1262,9 @@ function resetAll(){
   $("fontStyle").selectedIndex = 0;
   $("textPosition").selectedIndex = 0;
   $("creatorPosition").selectedIndex = 0;
-  $("out45").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 4:5 시화 프롬프트가 표시됩니다.";
-  $("out916text").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 9:16 시화 프롬프트가 표시됩니다.";
-  $("out916bg").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 9:16 배경 프롬프트가 표시됩니다.";
+  $("out45").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 시화 이미지 프롬프트가 표시됩니다.";
+  $("out916text").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 시화 이미지 프롬프트(글자 포함)가 표시됩니다.";
+  $("out916bg").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 배경 이미지 프롬프트(글자 없음)가 표시됩니다.";
   $("outFlowText").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.";
   $("outFlowBg").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.";
   ["status-out45","status-out916text","status-out916bg","status-outFlowText","status-outFlowBg"].forEach(id => {
