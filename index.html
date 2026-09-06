@@ -11,20 +11,14 @@
     --ink:#253247;
     --muted:#6d7480;
     --navy:#29435f;
-    --navy2:#3b5873;
     --brick:#b9654b;
-    --brick-soft:#f2ddd4;
     --gold:#d1a552;
     --sage:#8ca58c;
-    --sage-soft:#e8efe7;
     --line:#e8dfd4;
     --shadow:0 14px 34px rgba(54,45,35,.08);
   }
-
   *{box-sizing:border-box}
-
-  html{scroll-behavior:smooth}
-
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
   body{
     margin:0;
     font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,sans-serif;
@@ -32,876 +26,193 @@
       radial-gradient(circle at top left, rgba(209,165,82,.12), transparent 28%),
       linear-gradient(180deg,#fffaf3 0%,#f7f3ed 50%,#f6f8f7 100%);
     color:var(--ink);
-    line-height:1.75;
-  }
-
-  .wrap{
-    width:min(1140px,calc(100% - 28px));
-    margin:0 auto;
-  }
-
-  header{padding:34px 0 18px}
-
-  .hero{
-    position:relative;
-    overflow:hidden;
-    min-height:390px;
-    padding:42px;
-    border-radius:30px;
-    background:
-      linear-gradient(135deg,rgba(41,67,95,.97),rgba(62,86,104,.96));
-    box-shadow:var(--shadow);
-    color:#fff;
-  }
-
-  .hero:before,
-  .hero:after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    pointer-events:none;
-  }
-
-  .hero:before{
-    width:340px;height:340px;
-    right:-90px;top:-120px;
-    background:rgba(255,255,255,.06);
-  }
-
-  .hero:after{
-    width:220px;height:220px;
-    left:-80px;bottom:-110px;
-    background:rgba(209,165,82,.12);
-  }
-
-  .hero-inner{
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:30px;
-    align-items:center;
-    position:relative;
-    z-index:2;
-  }
-
-  .kicker{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:8px 13px;
-    border-radius:999px;
-    font-size:14px;
-    font-weight:800;
-    background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.22);
-  }
-
-  h1{
-    margin:16px 0 14px;
-    font-size:clamp(34px,5vw,56px);
-    line-height:1.16;
-    letter-spacing:-.04em;
-  }
-
-  .hero p{
-    margin:0;
-    max-width:720px;
-    color:#edf3f5;
+    line-height:1.78;
     font-size:17px;
   }
-
+  .wrap{width:min(1180px,calc(100% - 28px));margin:0 auto}
+  header{padding:26px 0 18px}
+  .hero{
+    position:relative;overflow:hidden;padding:42px;border-radius:30px;
+    background:linear-gradient(135deg,rgba(41,67,95,.97),rgba(62,86,104,.96));
+    box-shadow:var(--shadow);color:#fff;
+  }
+  .hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+  .hero:before{width:340px;height:340px;right:-90px;top:-120px;background:rgba(255,255,255,.06)}
+  .hero:after{width:220px;height:220px;left:-80px;bottom:-110px;background:rgba(209,165,82,.12)}
+  .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;position:relative;z-index:2}
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;
+    font-size:14px;font-weight:800;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);
+  }
+  h1{margin:16px 0 14px;font-size:clamp(34px,5vw,56px);line-height:1.16;letter-spacing:-.04em}
+  .hero p{margin:0;max-width:760px;color:#edf3f5;font-size:18px}
   .bridge{
-    display:grid;
-    grid-template-columns:1fr 70px 1fr;
-    gap:10px;
-    align-items:center;
-    padding:22px;
-    border:1px solid rgba(255,255,255,.18);
-    border-radius:24px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(4px);
+    display:grid;grid-template-columns:1fr 70px 1fr;gap:10px;align-items:center;
+    padding:22px;border:1px solid rgba(255,255,255,.18);border-radius:24px;
+    background:rgba(255,255,255,.08);backdrop-filter:blur(4px);
   }
-
   .person-card{
-    background:rgba(255,255,255,.95);
-    color:var(--ink);
-    border-radius:18px;
-    padding:20px 14px;
-    text-align:center;
+    background:rgba(255,255,255,.95);color:var(--ink);border-radius:18px;padding:20px 14px;text-align:center;
   }
-
   .person-icon{
-    width:62px;height:62px;
-    margin:0 auto 10px;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    font-size:30px;
+    width:62px;height:62px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;font-size:30px;
   }
-
-  .adult .person-icon{background:#efe4d7}
-  .youth .person-icon{background:#e2edf2}
-
-  .person-card b{
-    display:block;
-    margin-bottom:5px;
-    font-size:16px;
-  }
-
-  .person-card span{
-    font-size:13px;
-    color:var(--muted);
-  }
-
-  .connection{
-    text-align:center;
-    font-weight:900;
-    color:#f2d49c;
-    font-size:13px;
-    line-height:1.35;
-  }
-
-  .connection .line{
-    height:2px;
-    background:linear-gradient(90deg,transparent,#f2d49c,transparent);
-    margin:7px 0;
-  }
-
-  main{padding:10px 0 58px}
-
-  .section{
-    margin-top:28px;
-  }
-
-  .section-title{
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    gap:16px;
-    margin-bottom:15px;
-  }
-
-  .section h2{
-    margin:0;
-    font-size:29px;
-    line-height:1.3;
-    letter-spacing:-.03em;
-  }
-
-  .section-sub{
-    margin:6px 0 0;
-    color:var(--muted);
-  }
-
+  .adult .person-icon{background:#efe4d7}.youth .person-icon{background:#e2edf2}
+  .person-card b{display:block;margin-bottom:5px;font-size:16px}
+  .person-card span{font-size:14px;color:var(--muted)}
+  .connection{text-align:center;font-weight:900;color:#f2d49c;font-size:13px;line-height:1.35}
+  .connection .line{height:2px;background:linear-gradient(90deg,transparent,#f2d49c,transparent);margin:7px 0}
+  main{padding:10px 0 60px}
+  .section{margin-top:28px}
+  .section-title{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:15px}
+  .section h2{margin:0;font-size:30px;line-height:1.3;letter-spacing:-.03em}
+  .section-sub{margin:6px 0 0;color:var(--muted);font-size:15px}
   .label{
-    flex:none;
-    font-size:12px;
-    font-weight:900;
-    letter-spacing:.08em;
-    color:var(--brick);
-    background:#fff4ee;
-    border:1px solid #efd6cb;
-    padding:7px 10px;
-    border-radius:999px;
+    flex:none;font-size:12px;font-weight:900;letter-spacing:.08em;color:var(--brick);
+    background:#fff4ee;border:1px solid #efd6cb;padding:7px 10px;border-radius:999px;
   }
-
-  .story-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-  }
-
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .story-card{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:22px;
-    padding:24px;
-    box-shadow:var(--shadow);
-    position:relative;
-    overflow:hidden;
+    background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px;
+    box-shadow:var(--shadow);position:relative;overflow:hidden;
   }
-
   .story-card:after{
-    content:"";
-    position:absolute;
-    width:110px;height:110px;
-    border-radius:50%;
-    right:-35px;bottom:-45px;
-    background:rgba(209,165,82,.08);
+    content:"";position:absolute;width:110px;height:110px;border-radius:50%;
+    right:-35px;bottom:-45px;background:rgba(209,165,82,.08);
   }
-
   .story-card .mini{
-    display:inline-block;
-    padding:6px 10px;
-    border-radius:999px;
-    font-size:13px;
-    font-weight:800;
-    margin-bottom:10px;
+    display:inline-block;padding:6px 10px;border-radius:999px;font-size:13px;font-weight:800;margin-bottom:10px;
   }
-
-  .old .mini{
-    background:#f1e8dd;
-    color:#7b6043;
-  }
-
-  .new .mini{
-    background:#e5eef3;
-    color:#355b73;
-  }
-
-  .story-card strong{
-    display:block;
-    font-size:21px;
-    line-height:1.5;
-    margin-bottom:8px;
-  }
-
-  .story-card p{
-    margin:0;
-    color:var(--muted);
-  }
-
+  .old .mini{background:#f1e8dd;color:#7b6043}.new .mini{background:#e5eef3;color:#355b73}
+  .story-card strong{display:block;font-size:21px;line-height:1.5;margin-bottom:8px}
+  .story-card p{margin:0;color:var(--muted);font-size:15px}
   .generation-message{
-    margin-top:16px;
-    background:linear-gradient(135deg,#fff8ef,#f7efe5);
-    border:1px solid #ead7c4;
-    border-radius:20px;
-    padding:22px 24px;
-    font-size:20px;
-    font-weight:800;
-    color:#6c513c;
-    box-shadow:var(--shadow);
+    margin-top:16px;background:linear-gradient(135deg,#fff8ef,#f7efe5);
+    border:1px solid #ead7c4;border-radius:20px;padding:22px 24px;font-size:20px;font-weight:800;color:#6c513c;box-shadow:var(--shadow);
   }
-
-  .flow{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
-  }
-
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .flow-card{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:20px;
-    min-height:190px;
-    position:relative;
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;min-height:180px;
   }
-
   .flow-card:nth-child(1){border-top:5px solid #b88a66}
   .flow-card:nth-child(2){border-top:5px solid var(--brick)}
   .flow-card:nth-child(3){border-top:5px solid var(--sage)}
   .flow-card:nth-child(4){border-top:5px solid var(--navy)}
-
   .step-num{
-    width:36px;height:36px;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    background:#f5efe7;
-    color:var(--navy);
-    font-weight:900;
-    margin-bottom:12px;
+    width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+    background:#f5efe7;color:var(--navy);font-weight:900;margin-bottom:12px;
   }
-
-  .flow-card h3{
-    margin:0 0 8px;
-    font-size:18px;
-  }
-
-  .flow-card p{
-    margin:0;
-    color:var(--muted);
-    font-size:14px;
-  }
-
-  .workbench{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-    align-items:start;
-  }
-
+  .flow-card h3{margin:0 0 8px;font-size:18px}
+  .flow-card p{margin:0;color:var(--muted);font-size:15px}
   .panel{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:24px;
-    padding:24px;
-    box-shadow:var(--shadow);
+    background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow);
   }
-
   .panel-head{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding-bottom:16px;
-    border-bottom:1px dashed #ddd2c4;
-    margin-bottom:8px;
+    display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px dashed #ddd2c4;margin-bottom:8px;
   }
-
   .panel-icon{
-    width:44px;height:44px;
-    border-radius:14px;
-    display:grid;
-    place-items:center;
-    font-size:22px;
-    background:#f1e7db;
+    width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:#f1e7db;
   }
-
-  .panel-head h3{
-    margin:0;
-    font-size:20px;
-  }
-
-  .panel-head p{
-    margin:3px 0 0;
-    color:var(--muted);
-    font-size:13px;
-  }
-
-  label{
-    display:block;
-    font-weight:800;
-    margin:16px 0 8px;
-  }
-
+  .panel-head h3{margin:0;font-size:20px}
+  .panel-head p{margin:3px 0 0;color:var(--muted);font-size:14px}
+  .editor-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
+  label{display:block;font-weight:800;margin:16px 0 8px;font-size:16px}
   textarea,input,select{
-    width:100%;
-    border:1px solid #d9d0c5;
-    border-radius:14px;
-    padding:14px 15px;
-    background:#fff;
-    color:var(--ink);
-    font:inherit;
-    outline:none;
-    transition:.2s;
+    width:100%;border:1px solid #d9d0c5;border-radius:14px;padding:14px 15px;background:#fff;color:var(--ink);
+    font:inherit;outline:none;transition:.2s;min-height:52px;
   }
-
-  textarea:focus,input:focus,select:focus{
-    border-color:#c6856d;
-    box-shadow:0 0 0 4px rgba(185,101,75,.10);
-  }
-
-  textarea{
-    min-height:220px;
-    resize:vertical;
-    line-height:1.85;
-  }
-
-  .row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-  }
-
+  textarea:focus,input:focus,select:focus{border-color:#c6856d;box-shadow:0 0 0 4px rgba(185,101,75,.10)}
+  textarea{min-height:240px;resize:vertical;line-height:1.85}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .helpbox{
-    margin-top:10px;
-    padding:14px 15px;
-    border-radius:15px;
-    background:#f6f2eb;
-    border:1px solid #e6dccf;
-    color:#665b50;
-    font-size:13px;
-    line-height:1.85;
+    margin-top:10px;padding:14px 15px;border-radius:15px;background:#f6f2eb;border:1px solid #e6dccf;
+    color:#665b50;font-size:14px;line-height:1.85;
   }
-
-  .helpbox.blue{
-    background:#edf4f7;
-    border-color:#d6e4ea;
-    color:#48606c;
-  }
-
-  .helpbox.green{
-    background:#eef4ed;
-    border-color:#d9e5d7;
-    color:#546b54;
-  }
-
-  .btns{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:20px;
-  }
-
+  .helpbox.blue{background:#edf4f7;border-color:#d6e4ea;color:#48606c}
+  .helpbox.green{background:#eef4ed;border-color:#d9e5d7;color:#546b54}
+  .helpbox.gold{background:#fff7e8;border-color:#f0dfae;color:#72562d}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
   button{
-    border:0;
-    border-radius:13px;
-    padding:13px 18px;
-    font-weight:900;
-    cursor:pointer;
-    font-size:15px;
+    border:0;border-radius:13px;padding:13px 18px;font-weight:900;cursor:pointer;font-size:15px;min-height:50px;
   }
-
-  .primary{
-    background:var(--brick);
-    color:white;
+  .primary{background:var(--brick);color:white}
+  .copy{background:var(--navy);color:white}
+  .ghost{background:#eee8df;color:#4d5158}
+  .notice{margin-top:12px;min-height:22px;font-size:14px;font-weight:800;color:#4c7959}
+  .prompt-stack{display:grid;grid-template-columns:1fr;gap:18px;margin-top:22px}
+  .prompt-card{
+    background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);
   }
-
-  .copy{
-    background:var(--navy);
-    color:white;
-  }
-
-  .ghost{
-    background:#eee8df;
-    color:#4d5158;
-  }
-
-  .notice{
-    margin-top:12px;
-    min-height:22px;
-    font-size:14px;
-    font-weight:800;
-    color:#4c7959;
-  }
-
+  .prompt-card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
+  .prompt-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900}
+  .badge-45{background:#fff1ec;color:#8a4b35}
+  .badge-916text{background:#eef5ff;color:#35567b}
+  .badge-916bg{background:#eef6ed;color:#50704d}
+  .badge-flow1{background:#f4efff;color:#5f44a8}
+  .badge-flow2{background:#fff3dc;color:#8a6524}
+  .prompt-card h4{margin:7px 0 5px;font-size:20px;line-height:1.35}
+  .prompt-card p{margin:0;color:var(--muted);font-size:14px}
+  .small-copy{padding:10px 13px;font-size:14px;min-height:42px}
   .output{
-    white-space:pre-wrap;
-    background:#263546;
-    color:#f8fafc;
-    border-radius:18px;
-    padding:20px;
-    min-height:510px;
-    font-size:14px;
-    line-height:1.9;
-    border:1px solid #364759;
+    white-space:pre-wrap;background:#263546;color:#f8fafc;border-radius:18px;padding:18px;min-height:220px;
+    font-size:14px;line-height:1.9;border:1px solid #364759;overflow-wrap:anywhere;
   }
-
-  .output-label{
-    display:inline-block;
-    padding:5px 9px;
-    border-radius:999px;
-    background:#e8efe7;
-    color:#506a52;
-    font-size:12px;
-    font-weight:900;
-    margin-bottom:10px;
-  }
-
-  .checks{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-  }
-
-  .check{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:18px;
-  }
-
-  .check b{
-    display:block;
-    margin-bottom:6px;
-  }
-
-  .check span{
-    color:var(--muted);
-    font-size:14px;
-  }
-
+  .checks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .check{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
+  .check b{display:block;margin-bottom:6px}
+  .check span{color:var(--muted);font-size:14px}
   .closing{
-    margin-top:28px;
-    padding:26px;
-    border-radius:22px;
-    background:linear-gradient(135deg,#f7efe5,#eef3f1);
-    border:1px solid #e2dbd1;
-    text-align:center;
+    margin-top:28px;padding:26px;border-radius:22px;background:linear-gradient(135deg,#f7efe5,#eef3f1);
+    border:1px solid #e2dbd1;text-align:center;
   }
+  .closing strong{display:block;font-size:22px;color:var(--navy);margin-bottom:5px}
+  .closing span{color:var(--muted);font-size:15px}
+  footer{padding:0 0 42px;text-align:center;color:#8a8178;font-size:13px;line-height:1.7}
 
-  .closing strong{
-    display:block;
-    font-size:22px;
-    color:var(--navy);
-    margin-bottom:5px;
+  @media (min-width:1200px){
+    .hero{padding:48px}.hero p{font-size:19px}.section h2{font-size:32px}.output{font-size:15px}
   }
-
-  .closing span{
-    color:var(--muted);
-  }
-
-  footer{
-    padding:0 0 42px;
-    text-align:center;
-    color:#8a8178;
-    font-size:13px;
-  }
-
-  @media(max-width:920px){
-    .hero-inner,
-    .workbench,
-    .story-grid{
-      grid-template-columns:1fr;
-    }
+  @media (max-width:980px){
+    .hero-inner,.story-grid,.editor-grid{grid-template-columns:1fr}
     .flow{grid-template-columns:1fr 1fr}
     .checks{grid-template-columns:1fr 1fr}
-    .bridge{max-width:560px}
+    .bridge{max-width:640px}
   }
-
-  @media(max-width:620px){
-    .hero{padding:30px 22px}
-    .bridge{grid-template-columns:1fr}
-    .connection{padding:4px 0}
-    .connection .line{width:70px;margin:7px auto}
-    .row,
-    .flow,
-    .checks{grid-template-columns:1fr}
-    h1{font-size:34px}
-    .section h2{font-size:24px}
-    .panel,.story-card{padding:19px}
-  }
-
-  /* ===== 반응형·가독성 강화 ===== */
-  html{
-    -webkit-text-size-adjust:100%;
-    text-size-adjust:100%;
-  }
-
-  body{
-    font-size:17px;
-  }
-
-  p, span, label, input, textarea, select, button{
-    letter-spacing:-0.01em;
-  }
-
-  input, textarea, select{
-    min-height:52px;
-    font-size:16px;
-  }
-
-  textarea{
-    min-height:240px;
-  }
-
-  button{
-    min-height:50px;
-    line-height:1.3;
-  }
-
-  .section-sub,
-  .story-card p,
-  .flow-card p,
-  .check span,
-  .helpbox{
-    font-size:15px;
-  }
-
-  .panel-head p{
-    font-size:14px;
-  }
-
-  .output{
-    font-size:15px;
-  }
-
-  /* PC / 큰 화면 */
-  @media (min-width:1200px){
-    .wrap{
-      width:min(1180px,calc(100% - 48px));
-    }
-
-    .hero{
-      padding:52px 48px;
-    }
-
-    .hero p{
-      font-size:19px;
-      line-height:1.8;
-    }
-
-    .section h2{
-      font-size:32px;
-    }
-
-    .story-card strong{
-      font-size:23px;
-    }
-
-    .flow-card h3,
-    .panel-head h3{
-      font-size:20px;
-    }
-
-    label{
-      font-size:17px;
-    }
-
-    input, textarea, select{
-      font-size:17px;
-    }
-
-    .output{
-      font-size:15px;
-    }
-  }
-
-  /* 태블릿 */
-  @media (min-width:768px) and (max-width:1199px){
-    .wrap{
-      width:min(100% - 36px,1080px);
-    }
-
-    .hero{
-      padding:38px 30px;
-      min-height:auto;
-    }
-
-    h1{
-      font-size:clamp(38px,5.5vw,50px);
-    }
-
-    .hero p{
-      font-size:17px;
-    }
-
-    .hero-inner{
-      grid-template-columns:1fr;
-    }
-
-    .bridge{
-      max-width:680px;
-    }
-
-    .workbench{
-      grid-template-columns:1fr;
-    }
-
-    .panel{
-      padding:24px;
-    }
-
-    .output{
-      min-height:420px;
-    }
-  }
-
-  /* 스마트폰 */
   @media (max-width:767px){
-    .wrap{
-      width:calc(100% - 20px);
-    }
-
-    header{
-      padding:16px 0 8px;
-    }
-
-    .hero{
-      border-radius:22px;
-      padding:28px 20px;
-      min-height:auto;
-    }
-
-    .hero-inner{
-      grid-template-columns:1fr;
-      gap:22px;
-    }
-
-    .kicker{
-      font-size:13px;
-      padding:7px 10px;
-    }
-
-    h1{
-      font-size:34px;
-      line-height:1.18;
-      margin:14px 0;
-    }
-
-    .hero p{
-      font-size:16px;
-      line-height:1.85;
-    }
-
-    .bridge{
-      grid-template-columns:1fr;
-      padding:16px;
-      border-radius:18px;
-    }
-
-    .person-card{
-      padding:18px 14px;
-    }
-
-    .person-card b{
-      font-size:17px;
-    }
-
-    .person-card span{
-      font-size:14px;
-    }
-
-    .connection{
-      font-size:14px;
-    }
-
-    .section{
-      margin-top:22px;
-    }
-
-    .section-title{
-      display:block;
-    }
-
-    .section h2{
-      font-size:25px;
-      line-height:1.4;
-    }
-
-    .section-sub{
-      font-size:15px;
-      line-height:1.8;
-    }
-
-    .label{
-      display:inline-block;
-      margin-top:10px;
-    }
-
-    .story-grid,
-    .flow,
-    .workbench,
-    .checks,
-    .row{
-      grid-template-columns:1fr;
-    }
-
-    .story-card,
-    .flow-card,
-    .panel,
-    .check{
-      padding:20px;
-      border-radius:18px;
-    }
-
-    .story-card strong{
-      font-size:20px;
-    }
-
-    .story-card p,
-    .flow-card p,
-    .check span{
-      font-size:15px;
-      line-height:1.85;
-    }
-
-    .generation-message{
-      font-size:18px;
-      line-height:1.8;
-      padding:18px;
-    }
-
-    .flow-card{
-      min-height:auto;
-    }
-
-    .panel-head{
-      align-items:flex-start;
-    }
-
-    .panel-head h3{
-      font-size:20px;
-      line-height:1.45;
-    }
-
-    label{
-      margin-top:18px;
-      font-size:16px;
-    }
-
-    input, textarea, select{
-      min-height:56px;
-      padding:15px 14px;
-      font-size:16px;
-      border-radius:13px;
-    }
-
-    textarea{
-      min-height:260px;
-    }
-
-    .helpbox{
-      font-size:14px;
-      line-height:1.9;
-      padding:14px;
-    }
-
-    .btns{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:10px;
-    }
-
-    button{
-      width:100%;
-      min-height:54px;
-      font-size:16px;
-      padding:14px 16px;
-    }
-
-    .output{
-      min-height:360px;
-      max-height:none;
-      font-size:14px;
-      line-height:1.9;
-      padding:17px;
-      overflow-wrap:anywhere;
-    }
-
-    .closing{
-      padding:20px 16px;
-    }
-
-    .closing strong{
-      font-size:20px;
-      line-height:1.55;
-    }
-
-    .closing span{
-      display:block;
-      margin-top:8px;
-      font-size:15px;
-      line-height:1.8;
-    }
-
-    footer{
-      padding:0 10px 28px;
-      font-size:12px;
-      line-height:1.7;
-    }
+    .wrap{width:calc(100% - 20px)} header{padding:16px 0 8px}
+    .hero{padding:28px 20px;border-radius:22px}
+    .hero-inner{grid-template-columns:1fr;gap:22px}
+    .kicker{font-size:13px;padding:7px 10px}
+    h1{font-size:34px;line-height:1.18;margin:14px 0}
+    .hero p{font-size:16px;line-height:1.85}
+    .bridge{grid-template-columns:1fr;padding:16px;border-radius:18px}
+    .person-card{padding:18px 14px}
+    .connection{font-size:14px}.connection .line{width:70px;margin:7px auto}
+    .section{margin-top:22px}.section-title{display:block}
+    .section h2{font-size:25px;line-height:1.4}.section-sub{font-size:15px;line-height:1.8}
+    .label{display:inline-block;margin-top:10px}
+    .story-grid,.flow,.row,.checks{grid-template-columns:1fr}
+    .story-card,.flow-card,.panel,.check,.prompt-card{padding:18px;border-radius:18px}
+    .story-card strong{font-size:20px}
+    .generation-message{font-size:18px;line-height:1.8;padding:18px}
+    .flow-card{min-height:auto}
+    .panel-head{align-items:flex-start}.panel-head h3{font-size:20px;line-height:1.45}
+    label{margin-top:18px;font-size:16px}
+    input,textarea,select{min-height:56px;padding:15px 14px;font-size:16px}
+    textarea{min-height:260px}
+    .helpbox{font-size:14px;line-height:1.9;padding:14px}
+    .btns{display:grid;grid-template-columns:1fr;gap:10px}
+    button{width:100%;min-height:54px;font-size:16px;padding:14px 16px}
+    .prompt-card-header{display:block}.small-copy{width:100%;margin-top:12px}
+    .output{min-height:240px;font-size:14px;line-height:1.9;padding:16px}
+    .closing{padding:20px 16px}.closing strong{font-size:20px;line-height:1.55}
+    .closing span{display:block;margin-top:8px;font-size:15px;line-height:1.8}
+    footer{padding:0 10px 28px;font-size:12px}
   }
-
-  /* 아주 작은 스마트폰 */
   @media (max-width:390px){
-    h1{
-      font-size:30px;
-    }
-
-    .section h2{
-      font-size:23px;
-    }
-
-    .hero{
-      padding:24px 17px;
-    }
-
-    .story-card,
-    .flow-card,
-    .panel,
-    .check{
-      padding:17px;
-    }
-
-    input, textarea, select{
-      font-size:16px;
-    }
-
-    button{
-      font-size:15px;
-    }
+    h1{font-size:30px}.section h2{font-size:23px}.hero{padding:24px 17px}
+    .story-card,.flow-card,.panel,.check,.prompt-card{padding:16px} button{font-size:15px}
   }
-
 </style>
 </head>
 <body>
@@ -916,7 +227,8 @@
           <p>
             어른이 살아온 시간에서 나온 한 편의 시를 청소년이 천천히 읽고,
             자신의 감정과 시선으로 다시 해석합니다.
-            그리고 그 느낌을 AI와 함께 한 장의 <b>시화(詩畵)</b>로 만들어봅니다.
+            그리고 그 느낌을 AI와 함께 한 장의 <b>시화(詩畵)</b>로 만들고,
+            Google Flow에서 활용할 수 있도록 9:16 이미지와 영상 프롬프트까지 함께 준비합니다.
           </p>
         </div>
 
@@ -974,12 +286,11 @@
     </div>
   </section>
 
-
   <section class="section">
     <div class="section-title">
       <div>
         <h2>세대공감 시화를 만드는 4단계</h2>
-        <p class="section-sub">읽기 → 공감하기 → 해석하기 → 다시 창작하기의 흐름으로 진행해보세요.</p>
+        <p class="section-sub">읽기 → 공감하기 → 해석하기 → 시화·영상용 프롬프트 만들기의 흐름으로 진행해보세요.</p>
       </div>
       <span class="label">4 STEPS</span>
     </div>
@@ -999,181 +310,234 @@
 
       <div class="flow-card">
         <div class="step-num">3</div>
-        <h3>상징과 색으로 해석하기</h3>
-        <p>시 전체를 대표할 수 있는 상징, 색감, 계절, 분위기를 골라봅니다.</p>
+        <h3>시화로 해석하기</h3>
+        <p>상징, 색감, 여백, 글씨체를 골라 한 장의 시화로 표현합니다.</p>
       </div>
 
       <div class="flow-card">
         <div class="step-num">4</div>
-        <h3>AI 시화로 이어가기</h3>
-        <p>청소년의 해석과 시 원문을 함께 담아 한 장의 시화 작품으로 완성합니다.</p>
+        <h3>Flow용 프롬프트 만들기</h3>
+        <p>9:16 이미지 프롬프트와 Google Flow 영상 프롬프트를 함께 만들어 콘텐츠로 확장합니다.</p>
       </div>
     </div>
   </section>
-
 
   <section class="section">
     <div class="section-title">
       <div>
         <h2>나만의 세대공감 AI 시화 프롬프트 만들기</h2>
-        <p class="section-sub">어른의 창작시를 붙여넣고, 청소년의 해석을 더하면 작품용 프롬프트가 자동으로 만들어집니다.</p>
+        <p class="section-sub">한 번 입력하면 아래에 이미지 프롬프트 3종과 Google Flow 영상 프롬프트 2종이 함께 생성됩니다.</p>
       </div>
       <span class="label">CREATE</span>
     </div>
 
-    <div class="workbench">
+    <section class="panel">
+      <div class="panel-head">
+        <div class="panel-icon">✍️</div>
+        <div>
+          <h3>어른의 시 + 나의 해석 입력</h3>
+          <p>시의 원문과 내가 느낀 감정을 입력하면 시화용 프롬프트와 Flow용 프롬프트가 자동으로 완성됩니다.</p>
+        </div>
+      </div>
 
-      <section class="panel">
-        <div class="panel-head">
-          <div class="panel-icon">✍️</div>
-          <div>
-            <h3>어른의 시 + 나의 해석</h3>
-            <p>시의 원문과 내가 느낀 감정을 차례대로 입력해보세요.</p>
+      <div class="editor-grid">
+        <div>
+          <label for="title">시 제목 <span class="section-sub">(선택)</span></label>
+          <input id="title" placeholder="예: 매운맛 마라탕">
+
+          <label for="author">시인 이름 <span class="section-sub">(선택)</span></label>
+          <input id="author" placeholder="예: 김미숙">
+
+          <label for="creator">시화 창작자 이름·소속 <span class="section-sub">(선택)</span></label>
+          <input id="creator" placeholder="예: 동성중학교 3학년 2반 한소민">
+
+          <div class="helpbox green">
+            <b>시화를 만든 사람의 이름도 작품에 넣을 수 있어요.</b><br>
+            예: <b>동성중학교 3학년 2반 한소민</b><br>
+            입력한 문구를 작품 분위기에 어울리게 자연스럽고 잘 보이도록 넣는 프롬프트가 생성됩니다.
+          </div>
+
+          <label for="poem">어른이 창작한 시 원문</label>
+          <textarea id="poem" placeholder="여기에 창작시 전체를 줄바꿈 그대로 붙여넣으세요."></textarea>
+
+          <div class="helpbox">
+            <b>시 원문은 그대로!</b><br>
+            이미지 안에는 입력한 창작시를 요약하지 않고 원문 그대로 넣도록 프롬프트가 만들어집니다.
           </div>
         </div>
 
-        <label for="title">시 제목 <span class="section-sub">(선택)</span></label>
-        <input id="title" placeholder="예: 매운맛 마라탕">
+        <div>
+          <div class="row">
+            <div>
+              <label for="emotion">내가 느낀 중심 감정</label>
+              <input id="emotion" placeholder="예: 따뜻함, 미안함, 그리움">
+            </div>
 
-        <label for="author">시인 이름 <span class="section-sub">(선택)</span></label>
-        <input id="author" placeholder="예: 김미숙">
-
-        <label for="creator">시화 창작자 이름·소속 <span class="section-sub">(선택)</span></label>
-        <input id="creator" placeholder="예: 동성중학교 3학년 2반 한소민">
-
-        <div class="helpbox green">
-          <b>시화를 만든 사람의 이름도 작품에 넣을 수 있어요.</b><br>
-          예: <b>동성중학교 3학년 2반 한소민</b><br>
-          입력한 문구를 작품의 분위기에 맞는 위치, 크기, 색상으로 자연스럽고 잘 보이게 배치하도록 프롬프트에 반영합니다.
-        </div>
-
-        <label for="poem">어른이 창작한 시 원문</label>
-        <textarea id="poem" placeholder="여기에 창작시 전체를 줄바꿈 그대로 붙여넣으세요."></textarea>
-
-        <div class="helpbox">
-          <b>시 원문은 그대로!</b><br>
-          이미지 안에는 입력한 창작시를 요약하지 않고 원문 그대로 넣도록 프롬프트가 만들어집니다.
-        </div>
-
-        <div class="row">
-          <div>
-            <label for="emotion">내가 느낀 중심 감정</label>
-            <input id="emotion" placeholder="예: 따뜻함, 미안함, 그리움">
+            <div>
+              <label for="symbol">내가 고른 핵심 상징</label>
+              <input id="symbol" placeholder="예: 마라탕, 우산, 저녁빛">
+            </div>
           </div>
 
-          <div>
-            <label for="symbol">내가 고른 핵심 상징</label>
-            <input id="symbol" placeholder="예: 마라탕, 우산, 저녁빛">
-          </div>
-        </div>
+          <div class="row">
+            <div>
+              <label for="color">어울리는 색감</label>
+              <input id="color" placeholder="예: 따뜻한 빨강과 주황">
+            </div>
 
-        <div class="row">
-          <div>
-            <label for="color">어울리는 색감</label>
-            <input id="color" placeholder="예: 따뜻한 빨강과 주황">
-          </div>
-
-          <div>
-            <label for="space">계절·시간·공간</label>
-            <input id="space" placeholder="예: 늦은 저녁, 작은 식당">
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <label for="style">시화 표현 스타일</label>
-            <select id="style">
-              <option>부드러운 수채화 시화</option>
-              <option>한국적인 서정화 스타일</option>
-              <option>감성적인 디지털 페인팅</option>
-              <option>따뜻한 동화책 회화 스타일</option>
-              <option>절제된 미니멀 회화 스타일</option>
-              <option>사진과 회화가 섞인 감성적 스타일</option>
-            </select>
+            <div>
+              <label for="space">계절·시간·공간</label>
+              <input id="space" placeholder="예: 늦은 저녁, 작은 식당">
+            </div>
           </div>
 
-          <div>
-            <label for="ratio">이미지 비율</label>
-            <select id="ratio">
-              <option value="4:5">4:5 세로형</option>
-              <option value="3:4">3:4 세로형</option>
-              <option value="1:1">1:1 정사각형</option>
-              <option value="16:9">16:9 가로형</option>
-            </select>
-          </div>
-        </div>
+          <div class="row">
+            <div>
+              <label for="style">시화 표현 스타일</label>
+              <select id="style">
+                <option>부드러운 수채화 시화</option>
+                <option>한국적인 서정화 스타일</option>
+                <option>감성적인 디지털 페인팅</option>
+                <option>따뜻한 동화책 회화 스타일</option>
+                <option>절제된 미니멀 회화 스타일</option>
+                <option>사진과 회화가 섞인 감성적 스타일</option>
+              </select>
+            </div>
 
-        <div class="helpbox blue">
-          <b>비율 선택</b><br>
-          4:5 · 3:4는 전시용 시화에 잘 어울리고, 1:1은 SNS, 16:9는 발표·영상용으로 활용하기 좋습니다.
-        </div>
-
-        <div class="row">
-          <div>
-            <label for="fontStyle">시 글씨체 느낌</label>
-            <select id="fontStyle">
-              <option value="단정한 명조체 느낌">단정한 명조체</option>
-              <option value="부드럽고 감성적인 손글씨체 느낌">감성 손글씨체</option>
-              <option value="깔끔하고 현대적인 고딕체 느낌">깔끔한 고딕체</option>
-              <option value="전통적이고 서정적인 붓글씨체 느낌">한국적 붓글씨체</option>
-              <option value="동화책처럼 부드럽고 친근한 글씨체 느낌">동화책 글씨체</option>
-              <option value="세련되고 얇은 감성 세리프체 느낌">감성 세리프체</option>
-            </select>
+            <div>
+              <label for="fontStyle">시 글씨체 느낌</label>
+              <select id="fontStyle">
+                <option value="단정한 명조체 느낌">단정한 명조체</option>
+                <option value="부드럽고 감성적인 손글씨체 느낌">감성 손글씨체</option>
+                <option value="깔끔하고 현대적인 고딕체 느낌">깔끔한 고딕체</option>
+                <option value="전통적이고 서정적인 붓글씨체 느낌">한국적 붓글씨체</option>
+                <option value="동화책처럼 부드럽고 친근한 글씨체 느낌">동화책 글씨체</option>
+                <option value="세련되고 얇은 감성 세리프체 느낌">감성 세리프체</option>
+              </select>
+            </div>
           </div>
 
-          <div>
-            <label for="textPosition">시 원문 배치 위치</label>
-            <select id="textPosition">
-              <option>왼쪽 영역</option>
-              <option>오른쪽 영역</option>
-              <option>중앙 하단</option>
-              <option>중앙 상단</option>
-              <option>그림의 여백이 가장 넓은 영역</option>
-            </select>
+          <div class="row">
+            <div>
+              <label for="textPosition">시 원문 배치 위치</label>
+              <select id="textPosition">
+                <option>왼쪽 영역</option>
+                <option>오른쪽 영역</option>
+                <option>중앙 하단</option>
+                <option>중앙 상단</option>
+                <option>그림의 여백이 가장 넓은 영역</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="creatorPosition">창작자 이름 배치 위치</label>
+              <select id="creatorPosition">
+                <option>오른쪽 아래</option>
+                <option>왼쪽 아래</option>
+                <option>오른쪽 위</option>
+                <option>왼쪽 위</option>
+                <option>가장 자연스러운 여백 영역</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div class="helpbox green">
-          <b>글씨체도 감정의 일부예요.</b><br>
-          차분한 시는 명조체, 따뜻한 시는 손글씨체, 전통적인 분위기는 붓글씨체처럼 시의 감정과 어울리게 골라보세요.
-        </div>
-
-        <div class="btns">
-          <button class="primary" onclick="makePrompt()">시화 프롬프트 만들기</button>
-          <button class="copy" onclick="copyPrompt()">한 번에 복사하기</button>
-          <button class="ghost" onclick="sample()">예시 넣기</button>
-          <button class="ghost" onclick="resetAll()">초기화</button>
-        </div>
-
-        <div id="msg" class="notice"></div>
-      </section>
-
-
-      <section class="panel">
-        <div class="panel-head">
-          <div class="panel-icon">🖼️</div>
-          <div>
-            <h3>완성된 시화 프롬프트</h3>
-            <p>복사해서 이미지 생성 AI에 그대로 붙여넣으세요.</p>
+          <div class="helpbox blue">
+            <b>이번 페이지에서 생성되는 결과</b><br>
+            ① <b>4:5 시화 이미지 프롬프트</b><br>
+            ② <b>9:16 시화 이미지 프롬프트(글자 포함)</b><br>
+            ③ <b>9:16 배경 이미지 프롬프트(글자 없음)</b><br>
+            ④ <b>Google Flow 영상 프롬프트(글자 포함 시화용)</b><br>
+            ⑤ <b>Google Flow 영상 프롬프트(글자 없는 배경용)</b>
           </div>
+
+          <div class="helpbox gold">
+            <b>Google Flow 활용 팁</b><br>
+            글자 포함 시화 버전은 시 낭송 영상의 첫 장면이나 메인 장면에 적합하고,<br>
+            글자 없는 배경 버전은 자막, 모션, 전환 효과를 나중에 얹는 장면에 특히 유용합니다.
+          </div>
+
+          <div class="btns">
+            <button class="primary" onclick="makePrompts()">프롬프트 5종 만들기</button>
+            <button class="copy" onclick="copyAllPrompts()">프롬프트 5종 한 번에 복사</button>
+            <button class="ghost" onclick="sample()">예시 넣기</button>
+            <button class="ghost" onclick="resetAll()">초기화</button>
+          </div>
+
+          <div id="msg" class="notice"></div>
         </div>
+      </div>
+    </section>
 
-        <span class="output-label">AI IMAGE PROMPT</span>
+    <section class="prompt-stack">
 
-        <div id="out" class="output">
-왼쪽에 시를 입력한 뒤 “시화 프롬프트 만들기”를 눌러주세요.
+      <article class="prompt-card">
+        <div class="prompt-card-header">
+          <div>
+            <span class="prompt-badge badge-45">4:5 시화 프롬프트</span>
+            <h4>전시형 세로 시화 이미지 만들기</h4>
+            <p>시 전문과 그림, 창작자 이름이 함께 들어가는 4:5 시화 이미지 제작용입니다.</p>
+          </div>
+          <button class="copy small-copy" onclick="copyPrompt('out45', '4:5 시화 프롬프트가 복사되었습니다.')">이 프롬프트 복사</button>
         </div>
-      </section>
+        <div id="out45" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 4:5 시화 프롬프트가 표시됩니다.</div>
+      </article>
 
-    </div>
+      <article class="prompt-card">
+        <div class="prompt-card-header">
+          <div>
+            <span class="prompt-badge badge-916text">9:16 시화 프롬프트</span>
+            <h4>Google Flow용 세로 시화 이미지 만들기 (글자 포함)</h4>
+            <p>9:16 세로형 구도 안에 시 원문과 그림, 창작자 이름이 모두 들어가는 이미지 제작용입니다.</p>
+          </div>
+          <button class="copy small-copy" onclick="copyPrompt('out916text', '9:16 시화 프롬프트가 복사되었습니다.')">이 프롬프트 복사</button>
+        </div>
+        <div id="out916text" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 9:16 시화 프롬프트가 표시됩니다.</div>
+      </article>
+
+      <article class="prompt-card">
+        <div class="prompt-card-header">
+          <div>
+            <span class="prompt-badge badge-916bg">9:16 배경 프롬프트</span>
+            <h4>Google Flow용 세로 배경 이미지 만들기 (글자 없음)</h4>
+            <p>같은 시의 분위기를 유지하면서, 시·제목·작가·창작자 이름 없이 배경만 만드는 프롬프트입니다.</p>
+          </div>
+          <button class="copy small-copy" onclick="copyPrompt('out916bg', '9:16 배경 프롬프트가 복사되었습니다.')">이 프롬프트 복사</button>
+        </div>
+        <div id="out916bg" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 9:16 배경 프롬프트가 표시됩니다.</div>
+      </article>
+
+      <article class="prompt-card">
+        <div class="prompt-card-header">
+          <div>
+            <span class="prompt-badge badge-flow1">Google Flow 영상 프롬프트</span>
+            <h4>9:16 시화 이미지(글자 포함)를 영상으로 만들기</h4>
+            <p>글자가 들어간 9:16 시화 이미지를 자연스럽게 움직이는 세로 영상으로 확장하는 Flow용 프롬프트입니다.</p>
+          </div>
+          <button class="copy small-copy" onclick="copyPrompt('outFlowText', '글자 포함 시화용 Google Flow 프롬프트가 복사되었습니다.')">이 프롬프트 복사</button>
+        </div>
+        <div id="outFlowText" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.</div>
+      </article>
+
+      <article class="prompt-card">
+        <div class="prompt-card-header">
+          <div>
+            <span class="prompt-badge badge-flow2">Google Flow 영상 프롬프트</span>
+            <h4>9:16 배경 이미지(글자 없음)를 영상으로 만들기</h4>
+            <p>글자 없는 9:16 배경 이미지를 부드러운 카메라 움직임과 분위기 중심의 세로 영상으로 확장하는 Flow용 프롬프트입니다.</p>
+          </div>
+          <button class="copy small-copy" onclick="copyPrompt('outFlowBg', '글자 없는 배경용 Google Flow 프롬프트가 복사되었습니다.')">이 프롬프트 복사</button>
+        </div>
+        <div id="outFlowBg" class="output">입력 후 “프롬프트 5종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.</div>
+      </article>
+
+    </section>
   </section>
-
 
   <section class="section">
     <div class="section-title">
       <div>
         <h2>완성된 작품에서 이것을 확인해보세요</h2>
-        <p class="section-sub">정답을 찾는 활동이 아니라, 서로 다른 해석을 발견하는 활동입니다.</p>
+        <p class="section-sub">정답을 찾는 활동이 아니라, 서로 다른 해석과 활용 방법을 발견하는 활동입니다.</p>
       </div>
       <span class="label">CHECK</span>
     </div>
@@ -1181,7 +545,7 @@
     <div class="checks">
       <div class="check">
         <b>① 어른의 시가 그대로 담겼나요?</b>
-        <span>시 제목, 시인 이름, 시 원문이 정확하게 들어갔는지 확인합니다.</span>
+        <span>4:5와 9:16 글자 포함 버전에서 시 제목, 시인 이름, 시 원문이 정확하게 들어갔는지 확인합니다.</span>
       </div>
 
       <div class="check">
@@ -1196,23 +560,23 @@
 
       <div class="check">
         <b>④ 글자가 편하게 읽히나요?</b>
-        <span>시 원문과 그림이 겹치지 않고 가독성이 충분한지 확인합니다.</span>
+        <span>글자 포함 버전은 시 원문과 그림이 겹치지 않고 가독성이 충분한지 확인합니다.</span>
       </div>
 
       <div class="check">
         <b>⑤ 창작자 이름이 잘 보이나요?</b>
-        <span>예: “동성중학교 3학년 2반 한소민”처럼 입력한 이름·소속이 정확하고 자연스럽게 들어갔는지 확인합니다.</span>
+        <span>입력한 이름·소속이 정확하고 자연스럽게 들어갔는지 확인합니다.</span>
       </div>
 
       <div class="check">
-        <b>⑥ 세대의 연결이 느껴지나요?</b>
-        <span>어른의 경험과 청소년의 새로운 시선, 그리고 시화를 만든 창작자의 흔적이 한 작품 안에 함께 담겼는지 봅니다.</span>
+        <b>⑥ Flow 영상으로 확장하기 좋나요?</b>
+        <span>시화 분위기에 맞는 부드러운 움직임, 카메라 워크, 자막 여백까지 고려되었는지 확인합니다.</span>
       </div>
     </div>
 
     <div class="closing">
       <strong>같은 시, 다른 세대, 새로운 한 장의 이야기</strong>
-      <span>어른의 경험을 청소년의 감각으로 이어보는 것이 이 활동의 가장 중요한 의미입니다.</span>
+      <span>어른의 경험을 청소년의 감각으로 이어보고, 시화 이미지에서 영상 콘텐츠까지 확장해보세요.</span>
     </div>
   </section>
 
@@ -1222,33 +586,72 @@
   세대공감 AI 시화 창작 실습 · 어른의 이야기와 청소년의 상상력이 만나는 창작 프로젝트
 </footer>
 
-
 <script>
 const $ = id => document.getElementById(id);
 
-function makePrompt(){
+function safeValue(value, fallback){
+  return value && value.trim() ? value.trim() : fallback;
+}
 
-  const poem = $("poem").value.trim();
+function commonInput(){
+  return {
+    title: $("title").value.trim(),
+    author: $("author").value.trim(),
+    creator: $("creator").value.trim(),
+    poem: $("poem").value.trim(),
+    emotion: $("emotion").value.trim(),
+    symbol: $("symbol").value.trim(),
+    color: $("color").value.trim(),
+    space: $("space").value.trim(),
+    style: $("style").value,
+    fontStyle: $("fontStyle").value,
+    textPosition: $("textPosition").value,
+    creatorPosition: $("creatorPosition").value
+  };
+}
 
-  if(!poem){
-    $("out").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
+function makePrompts(){
+  const data = commonInput();
+
+  if(!data.poem){
+    $("out45").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
+    $("out916text").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
+    $("out916bg").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
+    $("outFlowText").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
+    $("outFlowBg").textContent = "먼저 어른이 창작한 시를 입력해주세요.";
+    $("msg").textContent = "시 원문을 입력한 뒤 다시 시도해주세요.";
     return;
   }
 
-  const title = $("title").value.trim();
-  const author = $("author").value.trim();
-  const creator = $("creator").value.trim();
-  const emotion = $("emotion").value.trim();
-  const symbol = $("symbol").value.trim();
-  const color = $("color").value.trim();
-  const space = $("space").value.trim();
-  const style = $("style").value;
-  const ratio = $("ratio").value;
-  const fontStyle = $("fontStyle").value;
-  const textPosition = $("textPosition").value;
+  const titleBlock = data.title ? `[시 제목]
+${data.title}
 
-  const prompt =
-`아래에 있는 어른의 창작시를 천천히 읽고,
+` : "";
+  const authorBlock = data.author ? `[시인]
+${data.author}
+
+` : "";
+  const creatorBlock = data.creator ? `[시화 창작자]
+${data.creator}
+
+` : "";
+
+  const baseInfo = `${titleBlock}${authorBlock}${creatorBlock}[어른이 창작한 시 원문]
+"""
+${data.poem}
+"""`;
+
+  const interpret = `[청소년이 느낀 시의 해석]
+- 중심 감정: ${safeValue(data.emotion, "시 전체를 읽고 가장 중요한 감정을 자연스럽게 파악해줘")}
+- 핵심 상징: ${safeValue(data.symbol, "시 전체를 대표할 수 있는 상징적인 소재 1~3개를 선택해줘")}
+- 색감: ${safeValue(data.color, "시의 정서에 어울리는 따뜻하고 감성적인 색감을 선택해줘")}
+- 계절·시간·공간: ${safeValue(data.space, "시의 분위기에 어울리는 계절, 시간, 공간을 자연스럽게 설정해줘")}
+- 표현 스타일: ${data.style}
+- 시 원문 글씨체 느낌: ${data.fontStyle}
+- 시 원문 배치 위치: ${data.textPosition}
+- 시화 창작자 이름 배치 위치: ${data.creatorPosition}`;
+
+  const prompt45 = `아래에 있는 어른의 창작시를 천천히 읽고,
 어른이 살아온 경험과 감정을 존중하면서
 청소년의 새로운 시선과 감성으로 다시 해석한
 ‘세대공감 시화(詩畵)’ 형식의 한 장의 작품으로 만들어줘.
@@ -1259,86 +662,211 @@ function makePrompt(){
 또한 아래에 제공하는 창작시 Text 전체를 이미지 안에 함께 넣고,
 선택한 글씨체 분위기까지 작품 전체와 조화롭게 표현해줘.
 
-${title ? `[시 제목]
-${title}
+${baseInfo}
 
-` : ""}${author ? `[시인]
-${author}
+${interpret}
+- 최종 이미지 비율: 4:5
 
-` : ""}${creator ? `[시화 창작자]
-${creator}
-
-` : ""}[어른이 창작한 시 원문]
-"""
-${poem}
-"""
-
-[청소년이 느낀 시의 해석]
-- 중심 감정: ${emotion || "시 전체를 읽고 가장 중요한 감정을 자연스럽게 파악해줘"}
-- 핵심 상징: ${symbol || "시 전체를 대표할 수 있는 상징적인 소재 1~3개를 선택해줘"}
-- 색감: ${color || "시의 정서에 어울리는 따뜻하고 감성적인 색감을 선택해줘"}
-- 계절·시간·공간: ${space || "시의 분위기에 어울리는 계절, 시간, 공간을 자연스럽게 설정해줘"}
-- 표현 스타일: ${style}
-- 최종 이미지 비율: ${ratio}
-- 시 원문 글씨체 느낌: ${fontStyle}
-- 시 원문 배치 위치: ${textPosition}
-
-[세대공감 시화 제작 조건]
-1. 어른의 시를 단순히 그림으로 옮기지 말고, 시에서 느껴지는 감정과 의미를 청소년의 시각 언어로 재해석해줘.
-2. 시에 등장하는 모든 내용을 그대로 그리지 말고, 작품 전체를 대표하는 핵심 상징 1~3개를 중심으로 구성해줘.
-3. 어른의 경험과 청소년의 새로운 감성이 자연스럽게 이어지는 따뜻한 분위기를 만들어줘.
-4. 색감, 빛, 그림자, 계절, 공간을 활용해 시의 정서를 시각적으로 보여줘.
-5. 화면을 사물로 가득 채우지 말고 충분한 여백을 두어 시의 여운과 감정을 느낄 수 있게 해줘.
-6. 사람을 표현할 경우 얼굴을 크게 강조하기보다 뒷모습, 실루엣, 손, 작은 인물 등으로 표현해 감상자가 자신의 경험을 떠올릴 수 있게 해줘.
-7. 지나치게 만화적이거나 장면 설명 중심의 그림은 피하고, 한 장의 전시용 시화 작품처럼 완성도 있게 표현해줘.
-8. 최종 이미지는 반드시 ${ratio} 비율로 제작해줘.
-9. 선택한 화면비 안에서 그림, 시 원문, 여백이 서로 겹치지 않도록 안정적인 구도를 만들어줘.
-
-[이미지 안의 창작시 Text 배치 조건 - 매우 중요]
+[4:5 시화 제작 조건]
+1. 세로형 4:5 비율의 시화 작품으로 제작해줘.
+2. 어른의 시를 단순히 그림으로 옮기지 말고, 시에서 느껴지는 감정과 의미를 청소년의 시각 언어로 재해석해줘.
+3. 시에 등장하는 모든 내용을 그대로 그리지 말고, 작품 전체를 대표하는 핵심 상징 1~3개를 중심으로 구성해줘.
+4. 어른의 경험과 청소년의 새로운 감성이 자연스럽게 이어지는 따뜻한 분위기를 만들어줘.
+5. 색감, 빛, 그림자, 계절, 공간을 활용해 시의 정서를 시각적으로 보여줘.
+6. 화면을 사물로 가득 채우지 말고 충분한 여백을 두어 시의 여운과 감정을 느낄 수 있게 해줘.
+7. 사람을 표현할 경우 얼굴을 크게 강조하기보다 뒷모습, 실루엣, 손, 작은 인물 등으로 표현해 감상자가 자신의 경험을 떠올릴 수 있게 해줘.
+8. 지나치게 만화적이거나 장면 설명 중심의 그림은 피하고, 한 장의 전시용 시화 작품처럼 완성도 있게 표현해줘.
+9. 4:5 세로 구도 안에서 그림, 시 원문, 창작자 이름이 서로 겹치지 않도록 안정적인 레이아웃을 만들어줘.
 10. 위에 제공한 어른의 창작시 원문 전체를 이미지 안에 반드시 넣어줘.
 11. 시 원문을 요약하거나 줄이거나 바꾸지 말고 입력된 Text를 그대로 사용해줘.
-12. 시의 단어, 조사, 띄어쓰기, 문장부호를 임의로 변경하지 말아줘.
-13. 시의 연과 행의 줄바꿈을 가능한 한 원문 그대로 유지해줘.
-14. 새로운 시구나 문장을 임의로 추가하지 말아줘.
-15. ${title ? `시 제목 "${title}"을 작품 안에 분명하게 표시해줘.` : "시 제목이 제공되지 않았으므로 임의의 제목을 만들지 말아줘."}
-16. ${author ? `시인 이름 "${author}"도 제목 주변이나 시 본문 주변에 자연스럽게 표시해줘.` : "시인 이름이 제공되지 않았으므로 임의의 작가 이름을 넣지 말아줘."}
-17. 시 원문은 화면의 ${textPosition}에 배치해줘.
-18. 시 원문과 제목, 시인 이름은 전체적으로 "${fontStyle}"의 분위기로 표현해줘.
-19. 글씨체의 개성보다 한글 가독성과 원문 정확성을 더 우선해줘.
-20. 제목은 본문보다 조금 더 크고 분명하게, 시인 이름은 제목보다 작고 단정하게 표현해줘.
-21. 시 본문은 충분한 행간과 여백을 확보해 편안하게 읽히도록 구성해줘.
-22. 글자가 그림에 묻히지 않도록 배경 대비를 확보하고, 필요하면 시가 들어가는 영역의 배경을 단순하거나 부드럽게 만들어줘.
-23. 선택한 글씨체 느낌이 지나치게 장식적이어서 한글이 왜곡되지 않도록 해줘.
-24. 그림, 시 원문, 글씨체가 따로 떨어진 포스터처럼 보이지 않고 한 장의 예술적인 시화로 자연스럽게 조화를 이루도록 해줘.
+12. 시의 연과 행의 줄바꿈을 가능한 한 원문 그대로 유지해줘.
+13. ${data.title ? `시 제목 "${data.title}"을 작품 안에 분명하게 표시해줘.` : "시 제목이 제공되지 않았으므로 임의의 제목을 만들지 말아줘."}
+14. ${data.author ? `시인 이름 "${data.author}"도 제목 주변이나 시 본문 주변에 자연스럽게 표시해줘.` : "시인 이름이 제공되지 않았으므로 임의의 작가 이름을 넣지 말아줘."}
+15. 시 원문은 화면의 ${data.textPosition}에 배치해줘.
+16. 시 원문과 제목, 시인 이름은 전체적으로 "${data.fontStyle}"의 분위기로 표현해줘.
+17. 글씨체의 개성보다 한글 가독성과 원문 정확성을 더 우선해줘.
+18. 시 본문은 충분한 행간과 여백을 확보해 편안하게 읽히도록 구성해줘.
+19. 글자가 그림에 묻히지 않도록 배경 대비를 확보하고, 필요하면 시가 들어가는 영역의 배경을 단순하거나 부드럽게 만들어줘.
+20. ${data.creator ? `시화를 만든 창작자 표기 "${data.creator}"를 이미지 안에 반드시 넣어줘.` : "시화 창작자 정보가 제공되지 않았으므로 임의의 창작자 이름이나 소속을 만들지 말아줘."}
+21. ${data.creator ? `창작자 표기 "${data.creator}"의 글자를 한 글자도 바꾸거나 줄이지 말고 입력된 그대로 정확하게 사용해줘.` : ""}
+22. 창작자 표기는 시 제목이나 시 본문보다 작게 표현하되 충분히 읽을 수 있도록 선명하게 만들어줘.
+23. 창작자 표기는 ${data.creatorPosition}에 자연스럽게 배치해줘.
+24. 최우선 목표는 ‘어른의 창작시 + 청소년의 해석 + 감성적인 시각 이미지 + 시화를 만든 창작자의 정확한 이름·소속’이 한 작품 안에서 자연스럽게 연결되는 4:5 세대공감 시화를 만드는 것이다.`;
 
-[시화 창작자 이름·소속 표시 조건]
-25. ${creator ? `시화를 만든 창작자 표기 "${creator}"를 이미지 안에 반드시 넣어줘.` : "시화 창작자 정보가 제공되지 않았으므로 임의의 창작자 이름이나 소속을 만들지 말아줘."}
-26. ${creator ? `창작자 표기 "${creator}"의 글자를 한 글자도 바꾸거나 줄이지 말고 입력된 그대로 정확하게 사용해줘.` : ""}
-27. 창작자 표기는 시 제목이나 시 본문보다 작게 표현하되, 작품을 감상할 때 충분히 읽을 수 있도록 선명하게 만들어줘.
-28. 창작자 표기는 작품의 분위기, 여백, 시 원문 위치를 고려하여 오른쪽 아래, 왼쪽 아래 또는 가장 자연스러운 여백 영역에 배치해줘.
-29. 창작자 이름이 그림이나 시 원문과 겹치지 않도록 하고, 배경과 충분한 명도·색상 대비를 확보해줘.
-30. 작품이 따뜻한 분위기라면 부드럽고 절제된 색으로, 현대적인 분위기라면 깔끔하고 선명한 색으로 표현하는 등 전체 시화 분위기에 맞춰 창작자 표기의 색상과 크기를 조절해줘.
-31. 창작자 표기는 로고나 워터마크처럼 과도하게 크거나 강하게 표현하지 말고, 전시 작품의 작가 서명·작품 정보처럼 단정하고 품격 있게 보여줘.
-32. 창작자 표기에도 한글 가독성을 최우선으로 하고, 글자가 왜곡되거나 깨지지 않도록 해줘.
-33. 최우선 목표는 ‘어른의 창작시 + 청소년의 해석 + 감성적인 시각 이미지 + 시화를 만든 창작자의 정확한 이름·소속’이 한 작품 안에서 자연스럽게 연결되는 세대공감 시화를 만드는 것이다.`;
+  const prompt916Text = `아래에 있는 어른의 창작시를 바탕으로,
+Google Flow에서 영상 소재로 활용할 수 있는 9:16 세로형 시화 이미지를 만들어줘.
 
-  $("out").textContent = prompt;
-  $("msg").textContent = "";
+핵심 목적은 4:5 시화의 감성과 내용을 유지하면서,
+세로 영상 화면에 맞게 재구성된 9:16 비율의 시화 이미지를 만드는 것이다.
+
+이 이미지는 ‘시화’ 형식이어야 하며,
+그림뿐 아니라 시 제목, 시인 이름, 창작시 원문 전체, 시화 창작자 이름도 이미지 안에 함께 들어가야 한다.
+
+${baseInfo}
+
+${interpret}
+- 최종 이미지 비율: 9:16
+
+[9:16 시화 이미지 제작 조건 - 글자 포함]
+1. 세로 영상용 9:16 비율로 제작해줘.
+2. 4:5 전시형 시화의 분위기를 유지하되, 세로 화면에 더 잘 맞도록 위아래 여백과 시선 흐름을 고려해 재구성해줘.
+3. 시의 감정과 상징을 중심으로 감성적이고 예술적인 시화 작품처럼 표현해줘.
+4. 상단, 중앙, 하단이 자연스럽게 흐르는 세로 구도를 활용해 영상의 첫 장면처럼 인상적인 구성을 만들어줘.
+5. 시 전문과 그림이 서로 겹치지 않도록 하고, 세로 화면에서도 글자가 작아지지 않게 충분히 크게 배치해줘.
+6. 한글 가독성을 매우 중요하게 생각해서, 스마트폰 화면에서도 읽기 쉬운 크기와 행간으로 구성해줘.
+7. 화면 상하단 가장자리에는 너무 가까이 붙지 않도록 안전 여백을 충분히 남겨줘.
+8. 시 원문을 요약하거나 줄이거나 바꾸지 말고 원문 그대로 넣어줘.
+9. 시 제목, 시인 이름, 창작자 이름도 정확하게 입력된 그대로 넣어줘.
+10. 시 원문은 ${data.textPosition}에 배치하되, 9:16 세로 구도에서 가장 읽기 좋고 안정적인 방식으로 조정해줘.
+11. 시 원문과 제목, 시인 이름은 "${data.fontStyle}"의 분위기로 표현하되, 장식보다 가독성을 우선해줘.
+12. 창작자 표기 ${data.creator ? `"${data.creator}"` : ""}는 ${data.creatorPosition}에 자연스럽게 배치해줘.
+13. 그림의 핵심 상징, 시 원문, 창작자 이름이 서로 충돌하지 않도록 층위를 정리해줘.
+14. 이 이미지는 이후 Google Flow에서 영상으로 활용될 수 있으므로, 한 장의 세로 시화 포스터처럼 완성도 있게 표현해줘.
+15. 최우선 목표는 ‘세로형 9:16 화면 안에서 시의 감정과 글이 모두 살아 있는 시화 이미지’를 만드는 것이다.`;
+
+  const prompt916Bg = `아래에 있는 어른의 창작시를 바탕으로,
+Google Flow에서 영상 배경으로 활용할 수 있는 9:16 세로형 배경 이미지를 만들어줘.
+
+핵심 목적은 위 시의 감정, 상징, 색감, 분위기를 유지하면서도,
+이미지 안에는 어떤 글자도 넣지 않은 깨끗한 배경 장면을 만드는 것이다.
+
+${baseInfo}
+
+[청소년이 느낀 시의 해석]
+- 중심 감정: ${safeValue(data.emotion, "시 전체를 읽고 가장 중요한 감정을 자연스럽게 파악해줘")}
+- 핵심 상징: ${safeValue(data.symbol, "시 전체를 대표할 수 있는 상징적인 소재 1~3개를 선택해줘")}
+- 색감: ${safeValue(data.color, "시의 정서에 어울리는 따뜻하고 감성적인 색감을 선택해줘")}
+- 계절·시간·공간: ${safeValue(data.space, "시의 분위기에 어울리는 계절, 시간, 공간을 자연스럽게 설정해줘")}
+- 표현 스타일: ${data.style}
+- 최종 이미지 비율: 9:16
+
+[9:16 배경 이미지 제작 조건 - 글자 없음]
+1. 세로 영상용 9:16 비율의 배경 이미지를 만들어줘.
+2. 시의 감정과 상징을 시각적으로 재해석한 장면을 만들어주되, 이 버전은 배경 전용 이미지이므로 시 제목, 시인 이름, 시 원문, 창작자 이름 등 모든 글자를 넣지 말아줘.
+3. 화면 안에 한글, 영문, 숫자, 사인, 워터마크, 로고, 장식 문자 등 어떤 텍스트 요소도 포함하지 말아줘.
+4. 시의 핵심 상징과 분위기를 유지하면서도, 나중에 Google Flow에서 텍스트나 움직임을 덧입히기 좋도록 깨끗한 여백을 확보해줘.
+5. 세로 영상 구도에 맞게 시선이 자연스럽게 흐르도록 위아래 깊이감이 있는 구성을 만들어줘.
+6. 인물이나 사물을 넣더라도 너무 복잡하지 않게 구성하고, 감정적 여운이 남는 장면으로 표현해줘.
+7. 9:16 화면의 상단 또는 중앙 또는 하단 한쪽에 상대적으로 넓고 깨끗한 공간을 남겨, 이후 자막이나 모션 그래픽이 올라가도 어색하지 않게 해줘.
+8. 그림의 전체 무드는 글자가 포함된 시화 버전과 같은 세계관과 색감을 유지해줘.
+9. 지나치게 설명적인 장면 대신 상징과 분위기가 살아 있는 예술적인 배경 이미지로 표현해줘.
+10. 최우선 목표는 ‘시의 감정은 살아 있지만 글자는 없는, Google Flow용 9:16 세로 배경 이미지’를 만드는 것이다.`;
+
+  const flowText = `Google Flow에서 사용할 9:16 세로형 영상 생성 프롬프트를 만들어줘.
+
+기준 이미지:
+- 9:16 비율의 시화 이미지
+- 시 제목, 시인 이름, 창작시 원문, 시화 창작자 이름이 모두 포함된 완성형 시화 이미지
+- 시의 분위기: ${safeValue(data.emotion, "감성적이고 서정적인 분위기")}
+- 핵심 상징: ${safeValue(data.symbol, "시를 대표하는 핵심 상징")}
+- 색감: ${safeValue(data.color, "따뜻하고 감성적인 색감")}
+- 공간 분위기: ${safeValue(data.space, "시의 정서에 어울리는 공간")}
+
+영상 생성 조건:
+1. 원본 시화 이미지의 분위기와 레이아웃을 최대한 유지하면서, 정적인 작품이 천천히 살아 움직이는 느낌의 세로형 영상으로 만들어줘.
+2. 영상 비율은 9:16 세로형으로 유지해줘.
+3. 카메라 움직임은 매우 부드럽고 안정적으로 해줘. 예: 느린 줌인, 미세한 패닝, 아주 은은한 틸트.
+4. 시화의 감정선에 어울리도록 움직임은 과하지 않게, 조용하고 서정적인 템포로 구성해줘.
+5. 글자가 들어 있는 시 제목, 시인 이름, 시 원문, 창작자 이름은 흔들리거나 깨지지 않게 유지해줘.
+6. 글자 자체가 변형되거나 다른 글자로 바뀌지 않게 하고, 전체적으로 읽기 가능한 상태를 유지해줘.
+7. 그림 안의 핵심 상징은 아주 미세하게 생동감이 느껴질 정도로만 움직여줘. 예: 김의 흐름, 빛의 떨림, 창밖 비의 잔잔한 움직임, 공기의 흐름, 종이의 미세한 숨결.
+8. 배경에는 아주 은은한 빛의 변화, 미세한 입자, 바람결, 그림자 변화 정도만 넣어줘.
+9. 영상은 시를 읽는 시간을 방해하지 않도록 과도한 전환, 빠른 카메라 이동, 강한 모션 효과를 피하고 차분한 분위기로 유지해줘.
+10. 세로 숏폼 영상의 첫 장면으로 사용하기 좋도록 시선이 자연스럽게 중앙 또는 텍스트 영역으로 모이게 해줘.
+11. 장면 전환 없이 한 장의 시화를 부드럽게 살아 움직이게 만드는 방식으로 연출해줘.
+12. 전체 무드는 ‘조용하고 감성적인 세대공감 시화 영상’이어야 해.
+13. 영상 길이는 약 5초에서 8초 정도의 인상을 주는 연출로 생각해줘.
+14. 최우선 목표는 ‘읽을 수 있는 시화 이미지가 부드럽고 품격 있게 움직이는 Google Flow용 세로 영상’을 만드는 것이다.`;
+
+  const flowBg = `Google Flow에서 사용할 9:16 세로형 영상 생성 프롬프트를 만들어줘.
+
+기준 이미지:
+- 9:16 비율의 글자 없는 배경 이미지
+- 시의 감정과 상징을 담고 있지만 텍스트는 없는 세로형 배경 장면
+- 시의 분위기: ${safeValue(data.emotion, "감성적이고 서정적인 분위기")}
+- 핵심 상징: ${safeValue(data.symbol, "시를 대표하는 핵심 상징")}
+- 색감: ${safeValue(data.color, "따뜻하고 감성적인 색감")}
+- 공간 분위기: ${safeValue(data.space, "시의 정서에 어울리는 공간")}
+
+영상 생성 조건:
+1. 원본 배경 이미지의 감성과 색감을 유지하면서, 조용히 살아 움직이는 9:16 세로형 영상으로 만들어줘.
+2. 영상 비율은 9:16 세로형으로 유지해줘.
+3. 이 버전은 이후 자막이나 시 텍스트, 내레이션과 함께 사용할 수 있어야 하므로 화면 안에 어떤 글자도 새로 만들지 말아줘.
+4. 자막이 올라갈 수 있도록 화면 한쪽 또는 중앙에 비교적 깨끗하고 안정적인 여백을 유지해줘.
+5. 카메라 움직임은 매우 부드럽고 안정적으로 해줘. 예: 느린 줌인, 미세한 패닝, 부드러운 패럴랙스 느낌.
+6. 장면 전체를 과하게 흔들지 말고, 감정적 여운이 살아나는 정도의 미세한 움직임으로 연출해줘.
+7. 핵심 상징에는 은은한 생동감을 넣어줘. 예: 김이 피어오름, 바람에 흔들리는 커튼, 빗방울의 잔잔한 흐름, 노을빛의 변화, 식당 안 공기의 움직임.
+8. 빛, 그림자, 입자, 공기감, 반사광 같은 요소를 활용해 정적인 이미지가 조금씩 살아나는 느낌을 줘.
+9. 너무 많은 오브젝트를 움직이지 말고, 전체적으로 차분하고 서정적인 분위기를 유지해줘.
+10. 빠른 컷 전환, 과도한 줌, 강한 효과, 과장된 움직임은 피하고 잔잔한 영상미를 우선해줘.
+11. 이 영상은 시 낭송 자막 또는 설명 텍스트를 나중에 올리기 좋은 배경 영상이어야 해.
+12. 영상 길이는 약 5초에서 8초 정도의 인상을 주는 연출로 생각해줘.
+13. 전체 무드는 ‘세대공감 시화의 감정을 담은 조용한 세로형 배경 영상’이어야 해.
+14. 최우선 목표는 ‘글자는 없지만 시의 정서가 살아 있고, Google Flow에서 활용하기 좋은 9:16 세로 배경 영상’을 만드는 것이다.`;
+
+  $("out45").textContent = prompt45;
+  $("out916text").textContent = prompt916Text;
+  $("out916bg").textContent = prompt916Bg;
+  $("outFlowText").textContent = flowText;
+  $("outFlowBg").textContent = flowBg;
+  $("msg").textContent = "프롬프트 5종이 생성되었습니다. 필요한 프롬프트를 복사해 활용하세요.";
 }
 
-async function copyPrompt(){
-  const text = $("out").textContent.trim();
+async function copyPrompt(id, successMessage){
+  const text = $(id).textContent.trim();
+  if(!text || text.includes("표시됩니다") || text.startsWith("먼저")){
+    $("msg").textContent = "먼저 프롬프트를 생성해주세요.";
+    return;
+  }
+  try{
+    await navigator.clipboard.writeText(text);
+    $("msg").textContent = successMessage;
+  }catch(e){
+    $("msg").textContent = "자동 복사가 되지 않았습니다. 문장을 직접 선택해 복사해주세요.";
+  }
+}
 
-  if(!text || text.startsWith("왼쪽에") || text.startsWith("먼저")){
-    $("msg").textContent = "먼저 시화 프롬프트를 만들어주세요.";
+async function copyAllPrompts(){
+  const ids = ["out45","out916text","out916bg","outFlowText","outFlowBg"];
+  const texts = ids.map(id => $(id).textContent.trim());
+  if(texts.some(t => !t || t.includes("표시됩니다") || t.startsWith("먼저"))){
+    $("msg").textContent = "먼저 프롬프트 5종을 생성해주세요.";
     return;
   }
 
+  const allText = `[1] 4:5 시화 프롬프트
+
+${texts[0]}
+
+==================================================
+
+[2] 9:16 시화 프롬프트 (글자 포함)
+
+${texts[1]}
+
+==================================================
+
+[3] 9:16 배경 프롬프트 (글자 없음)
+
+${texts[2]}
+
+==================================================
+
+[4] Google Flow 영상 프롬프트 (9:16 시화 이미지용)
+
+${texts[3]}
+
+==================================================
+
+[5] Google Flow 영상 프롬프트 (9:16 배경 이미지용)
+
+${texts[4]}`;
+
   try{
-    await navigator.clipboard.writeText(text);
-    $("msg").textContent = "세대공감 시화 프롬프트가 복사되었습니다. 이미지 생성 AI에 붙여넣으세요.";
+    await navigator.clipboard.writeText(allText);
+    $("msg").textContent = "프롬프트 5종이 한 번에 복사되었습니다.";
   }catch(e){
-    $("msg").textContent = "자동 복사가 되지 않았습니다. 결과 문장을 직접 선택해 복사해주세요.";
+    $("msg").textContent = "자동 복사가 되지 않았습니다. 각 프롬프트를 개별 복사해주세요.";
   }
 }
 
@@ -1346,7 +874,6 @@ function sample(){
   $("title").value = "매운맛 마라탕";
   $("author").value = "김미숙";
   $("creator").value = "동성중학교 3학년 2반 한소민";
-
   $("poem").value =
 `매일 친구랑 가다가
 엄마 찬스로 17,800원
@@ -1361,26 +888,28 @@ function sample(){
 이겨서 뭐 하나
 네 속이 내 속인걸
 싸우고 이기느니 내일은 중간 매운맛이다.`;
-
   $("emotion").value = "따뜻함, 미안함, 서로를 이해해가는 마음";
   $("symbol").value = "마라탕, 김이 오르는 그릇, 마주 앉은 두 사람";
   $("color").value = "따뜻한 빨강, 주황, 크림색";
   $("space").value = "저녁, 작은 마라탕 식당";
   $("style").value = "감성적인 디지털 페인팅";
-  $("ratio").value = "4:5";
   $("fontStyle").value = "단정한 명조체 느낌";
   $("textPosition").value = "왼쪽 영역";
-
-  makePrompt();
+  $("creatorPosition").value = "오른쪽 아래";
+  makePrompts();
 }
 
 function resetAll(){
   ["title","author","creator","poem","emotion","symbol","color","space"].forEach(id => $(id).value = "");
   $("style").selectedIndex = 0;
-  $("ratio").selectedIndex = 0;
   $("fontStyle").selectedIndex = 0;
   $("textPosition").selectedIndex = 0;
-  $("out").textContent = "왼쪽에 시를 입력한 뒤 “시화 프롬프트 만들기”를 눌러주세요.";
+  $("creatorPosition").selectedIndex = 0;
+  $("out45").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 4:5 시화 프롬프트가 표시됩니다.";
+  $("out916text").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 9:16 시화 프롬프트가 표시됩니다.";
+  $("out916bg").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 9:16 배경 프롬프트가 표시됩니다.";
+  $("outFlowText").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.";
+  $("outFlowBg").textContent = "입력 후 “프롬프트 5종 만들기”를 누르면 여기에 Google Flow 영상 프롬프트가 표시됩니다.";
   $("msg").textContent = "";
 }
 </script>
